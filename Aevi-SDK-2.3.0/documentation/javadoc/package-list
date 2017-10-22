@@ -1,0 +1,15 @@
+com.aevi.authentication
+com.aevi.configuration
+com.aevi.crashlog
+com.aevi.helpers
+com.aevi.helpers.services
+com.aevi.led
+com.aevi.magstripe
+com.aevi.mail
+com.aevi.payment
+com.aevi.preferences
+com.aevi.printing
+com.aevi.printing.model
+com.aevi.smartcard
+com.aevi.systembar
+com.aevi.transactionlog

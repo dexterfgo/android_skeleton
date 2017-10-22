@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AEVI SDK documentation v2.3.0</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="../assets/css/aevi.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/docs.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/glyphicons.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body class="url_reference_transaction_results categories_reference layout_default">
+
+<div id="main" class="layout">
+
+    <header class="header with-menu">
+        <div class="menu-toggle">
+            <button class="btn btn-default btn-sm"><i class="fa fa-lg fa-bars"></i></button>
+        </div>
+        <div class="brand"><a href="../index.html"><img src="../assets/img/logo.jpg" alt="Site Logo"></a></div>
+        <div class="controls right">
+            <div class="advert">Support? Email <a href="mailto:aevi.sdk@wincor-nixdorf.com" class="advert">support@aevi.com</a></div>
+            <div class="user"></div>
+        </div>
+    </header>
+
+    <div class="clearfix">
+    <div class="sidebar closed">
+    <nav>
+        <ul class="nav">
+            <li>
+                <a href="../index.html"><i class="fa fa-lg fa-book"></i> SDK Documentation</a>
+            </li>
+            
+            <li>
+                <a href="../introduction/index.html"><i class="fa fa-lg fa-bookmark"></i> Introduction</a>
+                
+        </li>
+        <li>
+            <a href="../guides/index.html"><i class="fa fa-lg fa-bookmark"></i> Guides</a>
+            
+        </li>
+        <li>
+            <a href="../reference/index.html"><i class="fa fa-lg fa-coffee"></i> Reference</a>
+            
+            <ul class="nav">
+                
+                
+        
+                
+        
+                
+        
+                
+                
+        
+        
+                
+                
+                <li><a href="../reference/javadocs.html">Javadocs</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../reference/device-specifications.html">Device Specification</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../reference/aevi-eula.html">Terms of Use</a></li>
+        
+        
+        
+                
+                
+                <li><a href="../reference/release-notes.html">Release Notes</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../reference/permissions-and-manifest.html">Permissions and Manifest</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+        
+                
+                
+                <li class="active"><a href="../reference/transaction-results.html">Transaction Results</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../reference/support.html">Getting Support</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+        </ul>
+        
+        </li>
+        </ul>
+    </nav>
+</div>
+
+    <div class="content with-menu" role="main">
+        <ol class="breadcrumb">
+            <li><a href="#">AEVI SDK v2.3.0</a></li>
+        </ol>
+        <div role="content">
+            <h1>Transaction Results</h1>
+            <p>After the payment app has completed the transaction, control will be returned to the calling app. Overriding 
+the <code>onActivityResult</code> enables the caller to obtain a detailed result and check whether the transaction was 
+successful. </p>
+
+<h2 id="reading-transaction-results">Reading Transaction Results</h2>
+
+<p>This result is captured in the <code>TransactionResult</code> class, and can be obtained from the returned <code>Intent</code>:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onActivityResult</span><span class="o">(</span><span class="kt">int</span> <span class="n">requestCode</span><span class="o">,</span> <span class="kt">int</span> <span class="n">resultCode</span><span class="o">,</span> <span class="n">Intent</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">resultCode</span> <span class="o">!=</span> <span class="n">Activity</span><span class="o">.</span><span class="na">RESULT_OK</span><span class="o">){</span>
+        <span class="k">return</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="n">TransactionResult</span> <span class="n">transactionResult</span> <span class="o">=</span> <span class="n">TransactionResult</span><span class="o">.</span><span class="na">fromIntent</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+    <span class="c1">// Check whether the transaction was successful</span>
+    <span class="k">switch</span> <span class="o">(</span><span class="n">transactionResult</span><span class="o">.</span><span class="na">getTransactionStatus</span><span class="o">()){</span>
+        <span class="k">case</span> <span class="nl">Approved:</span>
+            <span class="c1">//OK</span>
+            <span class="k">break</span><span class="o">;</span>
+        <span class="k">case</span> <span class="nl">Cancelled:</span>
+        <span class="k">case</span> <span class="nl">Declined:</span>
+        <span class="k">case</span> <span class="nl">Error:</span>
+        <span class="k">case</span> <span class="nl">Timeout:</span>
+            <span class="c1">//Failed</span>
+            <span class="k">break</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+
+<p>There are three classes of response:</p>
+
+<ol>
+  <li>First, a successful transaction will result in a transaction status set to <code>Approved</code>.</li>
+  <li>Second, a transaction that was initiated by the Payment app but was unsuccessful, is indicated by <code>Cancelled</code>, 
+<code>Declined</code>, or <code>Timeout</code>. In these cases the user was presented with a UI and went through the payment steps 
+but was unable to complete the transaction, for example due to insufficient funds or other problems. 
+More details about the reason why a transaction was rejected can be found by inspecting the 
+<code>TransactionErrorCode</code> property. </li>
+  <li>Finally, <code>Error</code> is returned when the Payment app failed processing a request. Examples of these are the 
+Payment app already servicing another payment or when the requested currency was not supported by the Payment app.</li>
+</ol>
+
+<blockquote>
+  <p><strong>Note:</strong> Some Banks support a maximum transaction amount that limits the size of payment that can be processed on the terminal. In this scenario, the transaction will fail returning an <code>ERROR</code> status and a <code>MALFORMED_REQUEST</code> transaction error code.</p>
+</blockquote>
+
+<h2 id="transaction-references">Transaction References</h2>
+
+<p>Each transaction that is processed by the Payment app returns one or more <em>Transaction References</em>. 
+A Transaction Reference is either a number or string with some property associated to a transaction. Examples 
+might include: the (masked) card number of the card used during the payment; the currency of the transaction; and IDs 
+generated by a Financial Host system to combine different messages throughout the lifecycle of a transaction. 
+These numbers can be used to print a customer receipt and are often required to complete or revert certain 
+transactions types. Please note that the data returned in the transaction references will be unique to each Bank. Therefore
+App developers cannot rely on the presence of specific data elements. </p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reference code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>STAN</td>
+      <td>A number assigned by the Payment app to uniquely identify a transaction. Please see <a href="#system-trace-audit-number-stan">System Trace Audit Number</a> for details</td>
+    </tr>
+    <tr>
+      <td>CARD_TYPE</td>
+      <td>The card type used by the customer during the transaction. Please see <a href="#card-type">Card type</a> for details. To receive this value the <code>com.aevi.permission.CARD_TYPE</code> permissions must be requested</td>
+    </tr>
+    <tr>
+      <td>CARD_TYPE_ENTRY</td>
+      <td>The card entry type Transaction Reference describes the way the card information is retrieved during a transaction. Please see <a href="#card-entry-type">Card Entry type</a> for details. To receive this value the <code>com.aevi.permission.CARD_TYPE</code> permissions must be requested</td>
+    </tr>
+    <tr>
+      <td>CURRENCY</td>
+      <td>The currency of the transaction</td>
+    </tr>
+    <tr>
+      <td>AMOUNT</td>
+      <td>The amount of the transaction</td>
+    </tr>
+    <tr>
+      <td>TX_RESPONSE_CODE</td>
+      <td>A response code assigned by the Payment app. For internal use only</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For more information on permissions and their usage see the <a href="../reference/permissions-and-manifest.html">Permissions</a> chapter.</p>
+
+<p>The following example lists all the available Transaction References keys and values;</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onActivityResult</span><span class="o">(</span><span class="kt">int</span> <span class="n">requestCode</span><span class="o">,</span> <span class="kt">int</span> <span class="n">resultCode</span><span class="o">,</span> <span class="n">Intent</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">resultCode</span> <span class="o">!=</span> <span class="n">Activity</span><span class="o">.</span><span class="na">RESULT_OK</span><span class="o">){</span>
+        <span class="k">return</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="n">TransactionResult</span> <span class="n">transactionResult</span> <span class="o">=</span> <span class="n">TransactionResult</span><span class="o">.</span><span class="na">fromIntent</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+    <span class="n">TransactionReferences</span> <span class="n">transactionReferences</span> <span class="o">=</span> <span class="n">transactionResult</span><span class="o">.</span><span class="na">getTransactionReferences</span><span class="o">();</span>
+    <span class="c1">// for demonstration purposes only, please be careful when logging financial information!</span>
+    <span class="k">for</span><span class="o">(</span><span class="n">TransactionReferenceCode</span> <span class="n">code</span> <span class="o">:</span> <span class="n">transactionReferences</span><span class="o">.</span><span class="na">getTransactionCodes</span><span class="o">()){</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;code: %s - value: %s&quot;</span><span class="o">,</span> <span class="n">code</span><span class="o">.</span><span class="na">getName</span><span class="o">(),</span> <span class="n">code</span><span class="o">.</span><span class="na">getValue</span><span class="o">()));</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+
+<h3 id="system-trace-audit-number-stan">System Trace Audit Number (STAN)</h3>
+
+<p>STAN is an acronym that stands for <em>System Trace Audit Number</em>. It is a number assigned by the 
+payment app to uniquely identify a transaction. The trace number remains unchanged for all 
+required messages throughout the life of a transaction.</p>
+
+<p>A STAN has the following properties:</p>
+
+<ol>
+  <li>Values will be assigned in the range from 000001 to 999999</li>
+  <li>Values shall always increment by 1 (one) from the previous value for each subsequent message sent from Albert</li>
+  <li>The Payment app will only generate the number just before it sends the transaction online</li>
+  <li>Where the Financial Host has not previously initialised the STAN, the default value is 000001</li>
+  <li>Where the Financial Host has initialised Albert through the provision of a new STAN value during logon, that value will be used as the STAN in the next message from Albert</li>
+  <li>When the counter has reached 999999 the next value, unless reset by initialisation, will be 000001</li>
+  <li>A Reversal Transaction will have a new STAN assigned, but will also contain the STAN of the original \transaction being reversed.</li>
+</ol>
+
+<h3 id="card-type">Card type</h3>
+
+<p>The card type Transaction Reference describes the card used by a customer during a transaction. The following 
+card type values are available;</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Card type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MASTERCARD</td>
+      <td>MasterCard card</td>
+    </tr>
+    <tr>
+      <td>VISA</td>
+      <td>Visa card</td>
+    </tr>
+    <tr>
+      <td>AMEX</td>
+      <td>American Express card</td>
+    </tr>
+    <tr>
+      <td>DINERS</td>
+      <td>Diners club card</td>
+    </tr>
+    <tr>
+      <td>JCB</td>
+      <td>Japan Credit Bureau card</td>
+    </tr>
+    <tr>
+      <td>UNION_PAY</td>
+      <td>Union Pay card</td>
+    </tr>
+    <tr>
+      <td>MAESTRO</td>
+      <td>Maestro card</td>
+    </tr>
+    <tr>
+      <td>LASER</td>
+      <td>Laser card</td>
+    </tr>
+    <tr>
+      <td>SOLO</td>
+      <td>Solo card</td>
+    </tr>
+    <tr>
+      <td>SWITCH</td>
+      <td>Switch card</td>
+    </tr>
+    <tr>
+      <td>OTHER_CREDIT</td>
+      <td>Other credit cards</td>
+    </tr>
+    <tr>
+      <td>OTHER_DEBIT</td>
+      <td>Other debit cards</td>
+    </tr>
+    <tr>
+      <td>OTHER_CHARGE</td>
+      <td>Other charge cards</td>
+    </tr>
+    <tr>
+      <td>OTHER</td>
+      <td>Other types of cards such as cash cards</td>
+    </tr>
+    <tr>
+      <td>PROPRIETARY</td>
+      <td>Proprietary card types such as store or loyalty cards</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="card-entry-type">Card Entry type</h3>
+
+<p>The card entry type Transaction Reference describes the way the card information is retrieved during a 
+transaction. The following card entry type values are available;</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Card entry type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CONTACTLESS</td>
+      <td>The card information is retrieved contactless for instance via NFC</td>
+    </tr>
+    <tr>
+      <td>CHIP</td>
+      <td>The chip on the card is read</td>
+    </tr>
+    <tr>
+      <td>MAGNETIC</td>
+      <td>The card is swiped along the magnetic reader</td>
+    </tr>
+    <tr>
+      <td>MANUAL_ENTRY</td>
+      <td>Card information is entered manually</td>
+    </tr>
+  </tbody>
+</table>
+
+        </div>        
+    </div>
+    </div>
+
+    <footer class="footer with-menu">
+        <div class="controls">
+            <div class="row">
+                <div class="social col-md-4">
+                    <ul class="nav nav-pills">
+                        <li><a href="https://www.facebook.com/wincornixdorf.de" target="_blank"> <i class="fa fa-2x fa-facebook-square"></i></a></li>
+                        <li><a href="https://twitter.com/wincornixdorf" target="_blank"> <i class="fa fa-2x fa-twitter-square"></i></a></li>
+                        <li><a href="https://plus.google.com/102902303639129288885" target="_blank"> <i class="fa fa-2x fa-google-plus-square"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/wincor-nixdorf" target="_blank"> <i class="fa fa-2x fa-linkedin-square"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copy col-md-8">
+                    <h5>AEVI by Wincor-Nixdorf</h5>
+                    <p>Copyright &copy; 2015. All rights reserved</p>
+                    <p><a href="http://www.wincor-nixdorf.com/">http://www.wincor-nixdorf.com/</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="logo"><img src="../assets/img/wincor-logo.png" alt="Wincor Nixdorf Logo" /></div>
+    </footer>
+</div>
+
+
+<script type="text/javascript" src="../assets/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="../assets/js/site.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</body>
+</html>

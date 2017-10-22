@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AEVI SDK documentation v2.3.0</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="../assets/css/aevi.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/docs.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/glyphicons.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body class="url_guides_crashlog_api categories_guides layout_default">
+
+<div id="main" class="layout">
+
+    <header class="header with-menu">
+        <div class="menu-toggle">
+            <button class="btn btn-default btn-sm"><i class="fa fa-lg fa-bars"></i></button>
+        </div>
+        <div class="brand"><a href="../index.html"><img src="../assets/img/logo.jpg" alt="Site Logo"></a></div>
+        <div class="controls right">
+            <div class="advert">Support? Email <a href="mailto:aevi.sdk@wincor-nixdorf.com" class="advert">support@aevi.com</a></div>
+            <div class="user"></div>
+        </div>
+    </header>
+
+    <div class="clearfix">
+    <div class="sidebar closed">
+    <nav>
+        <ul class="nav">
+            <li>
+                <a href="../index.html"><i class="fa fa-lg fa-book"></i> SDK Documentation</a>
+            </li>
+            
+            <li>
+                <a href="../introduction/index.html"><i class="fa fa-lg fa-bookmark"></i> Introduction</a>
+                
+        </li>
+        <li>
+            <a href="../guides/index.html"><i class="fa fa-lg fa-bookmark"></i> Guides</a>
+            
+            <ul class="nav">
+                
+                
+        
+                
+        
+                
+                
+        
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../guides/financial-transactions.html">Financial Transactions</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../guides/getting-started.html">Getting started</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../guides/app-integrity.html">Maintaining App Integrity</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../guides/configuration-api.html">Configuration and Status</a></li>
+        
+        
+        
+                
+        
+                
+                
+                <li><a href="../guides/card-api.html">Card Readers</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../guides/mail-api.html">Mail Service</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../guides/led-api.html">LED Service</a></li>
+        
+        
+        
+                
+        
+                
+                
+                <li><a href="../guides/user-authentication.html">User Authentication</a></li>
+        
+        
+        
+                
+                
+                <li><a href="../guides/printing-api.html">Printing Service</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+                
+                <li class="active"><a href="../guides/crashlog-api.html">Crash Log Service</a></li>
+        
+        
+        
+                
+                
+                <li><a href="../guides/transactionlog-api.html">Transaction Log Service</a></li>
+        
+        
+        
+                
+                
+                <li><a href="../guides/shared-preferences-api.html">Shared Preferences Service</a></li>
+        
+        
+        
+                
+                
+                <li><a href="../guides/systembar.html">System Bar</a></li>
+        
+        
+        
+                
+                
+                <li><a href="../guides/camera-guide.html">Using the Camera</a></li>
+        
+        
+        
+        </ul>
+        
+        </li>
+        <li>
+            <a href="../reference/index.html"><i class="fa fa-lg fa-coffee"></i> Reference</a>
+            
+        </li>
+        </ul>
+    </nav>
+</div>
+
+    <div class="content with-menu" role="main">
+        <ol class="breadcrumb">
+            <li><a href="#">AEVI SDK v2.3.0</a></li>
+        </ol>
+        <div role="content">
+            <h1>Crash Log Service</h1>
+            <p>The <em>Crash Log Service</em> enables crash log data from the app to be sent to the Bank’s Device
+Management System for distribution and analysis. This section describes how to implement this service
+into an app using the ACRA framework.</p>
+
+<h2 id="permissions">Permissions</h2>
+
+<p>In order to interact with the Crash Log Service, each app needs to include the following permission in its <em>Manifest file</em>.</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;com.aevi.permission.CRASH_LOG_SERVICE&quot;</span> <span class="nt">/&gt;</span></code></pre></div>
+
+<p>For more information about the available permissions, please see <a href="../reference/permissions-and-manifest.html">Manifest</a> section.</p>
+
+<h2 id="capture-framework">Capture Framework</h2>
+<p>The 3rd party crash log framework <a href="http://acra.ch">App Crash Report for Android (ACRA)</a> has been tested to work successfully on the Albert.
+It uses the Open Source Apache License.
+Although there are other third party crash log frameworks available, these solutions have not been tested on the Albert.</p>
+
+<p>The framework should be setup to send any crash logs using the AEVI SDK <code>CrashLogService</code> which provides a standard mechanism
+for the onward transmission of the crash log data.
+On the real Albert Device and infrastructure, the crashlog is forwarded to the Acquirer’s Device Management System. The
+mechanism for delivering this crashlog to you as a Developer is not determined by the AEVI SDK and is specific to the
+Acquirer. Please enquire for further details.</p>
+
+<blockquote>
+  <p>Crash log frameworks that directly access 3rd party Crash Log Services may not be permitted on the device by the Acquirer.</p>
+</blockquote>
+
+<h2 id="example-usage">Example usage</h2>
+<p>The example below takes the ACRA framework and integrates it into the Crash Log Service. For background information, we 
+advise reading the ACRA GitHub Repository <a href="https://github.com/ACRA/acra">https://github.com/ACRA/acra</a> and particularly the chapters <a href="https://github.com/ACRA/acra/wiki/BasicSetup#setting-up-your-project">Setting-up your 
+project</a> and 
+<a href="https://github.com/ACRA/acra/wiki/AdvancedUsage#implementing-your-own-sender">Implementing your own sender</a>.</p>
+
+<p>The typical setup of ACRA proceeds in three steps. First, an <em>annotation</em> is added to the Application class. This 
+annotation signals ACRA to watch for any unhandled exceptions that occur in the app process that carries this attribute. 
+Next, when the app is started, a CrashLogServiceProvider needs to be initialised and kept for reference. This reference 
+is needed to obtain an actual instance of the Crash Log Service when the app fails to handle an exception. Finally, a 
+custom ACRA <em>Report Sender</em> needs to be created. This sender takes the data gathered during the crash and transforms it 
+into a form the Crash Log Service can handle and calls the <code>send</code> method to start the transfer of the data.</p>
+
+<h3 id="setting-up-your-project">Setting-up your project</h3>
+
+<ul>
+  <li>Download the latest ACRA Distribution (see the <a href="https://github.com/ACRA/acra">ACRA GitHub</a> Site for details),</li>
+  <li>Add the file <code>acra-4.X.Y.jar</code> to your library.</li>
+</ul>
+
+<h3 id="create-or-modify-your-own-implementation-of-the-android-application-class">Create or modify your own implementation of the Android Application class</h3>
+
+<p>First, if you do not already have one, create your own implementation of the Android Application class. </p>
+
+<p>Then add the <em>ReportsCrashes</em> annotation to the Application class. This signals ACRA to monitor for unhandled exceptions.</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// The formKey is required by ACRA for backward compatibility but not used</span>
+<span class="nd">@ReportsCrashes</span><span class="o">(</span><span class="n">formKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyApplication</span> <span class="kd">extends</span> <span class="n">Application</span> <span class="o">{</span>
+<span class="o">...</span>
+<span class="o">}</span></code></pre></div>
+
+<p>Next, create a new class called <code>CrashLogServiceSender</code>. This class will implement an ACRA ReportSender that is used to 
+transform the gathered crash log data into a JSON string and send this information to the backend using the Crash Log 
+Service.</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**</span>
+<span class="cm"> * This ACRA report sender transforms the information gathered during</span>
+<span class="cm"> * a crash to a JSON string, connects to the Crash Log Service using the given provider</span>
+<span class="cm"> * and sends the crash log data as a string to the back end system.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CrashLogServiceSender</span> <span class="kd">implements</span> <span class="n">ReportSender</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">TAG</span> <span class="o">=</span> <span class="n">CrashLogServiceSender</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getSimpleName</span><span class="o">();</span>
+
+    <span class="kd">private</span> <span class="n">CrashLogServiceProvider</span> <span class="n">serviceProvider</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">CrashLogServiceSender</span><span class="o">(</span><span class="n">CrashLogServiceProvider</span> <span class="n">serviceProvider</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">serviceProvider</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="s">&quot;serviceProvider must not be null&quot;</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">serviceProvider</span> <span class="o">=</span> <span class="n">serviceProvider</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">send</span><span class="o">(</span><span class="kd">final</span> <span class="n">CrashReportData</span> <span class="n">report</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="n">SampleApplication</span><span class="o">.</span><span class="na">TAG</span><span class="o">,</span> <span class="s">&quot;Sending crash data to the Crash Log Service&quot;</span><span class="o">);</span>
+
+        <span class="c1">// Obtains a reference to the Crash Log Service</span>
+        <span class="n">serviceProvider</span><span class="o">.</span><span class="na">connect</span><span class="o">(</span><span class="k">new</span> <span class="n">AeviServiceConnectionCallback</span><span class="o">&lt;</span><span class="n">CrashLogService</span><span class="o">&gt;()</span> <span class="o">{</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onConnect</span><span class="o">(</span><span class="n">CrashLogService</span> <span class="n">service</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">try</span> <span class="o">{</span>
+                    <span class="n">service</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">report</span><span class="o">.</span><span class="na">toJSON</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
+                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">JSONReportBuilder</span><span class="o">.</span><span class="na">JSONReportException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">Log</span><span class="o">.</span><span class="na">e</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;Failed creating JSON report out of crash log data.&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+
+<p>Next, override the <code>onCreate()</code> function in the Application class. In this method the <code>CrashLogSeviceProvider</code> will be 
+created and ACRA will be initialised with an instance of our custom Report Sender.</p>
+
+<p>The complete Application class looks as follows</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// The formKey is required by ACRA for backward compatibility but not used</span>
+<span class="nd">@ReportsCrashes</span><span class="o">(</span><span class="n">formKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">)</span>  
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleApplication</span> <span class="kd">extends</span> <span class="n">Application</span> <span class="o">{</span>
+
+    <span class="kd">final</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">TAG</span> <span class="o">=</span> <span class="n">SampleApplication</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getSimpleName</span><span class="o">();</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">();</span>
+
+        <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;Initializing ACRA&quot;</span><span class="o">);</span>
+        <span class="n">ACRA</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+
+        <span class="c1">// Setup ACRA with a custom sender</span>
+        <span class="n">CrashLogServiceProvider</span> <span class="n">serviceProvider</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">CrashLogServiceProvider</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+        <span class="n">ACRA</span><span class="o">.</span><span class="na">getErrorReporter</span><span class="o">().</span><span class="na">setReportSender</span><span class="o">(</span><span class="k">new</span> <span class="nf">CrashLogServiceSender</span><span class="o">(</span><span class="n">serviceProvider</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+
+<p>In order to interact with the Crash Log Service, each app needs to include the correct permissions in its
+<em>Manifest file</em>. To run the example app add the following lines to the <code>AndroidManifest.xml</code> file.</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;com.aevi.permission.CRASH_LOG_SERVICE&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.READ_LOGS&quot;</span> <span class="nt">/&gt;</span></code></pre></div>
+
+<p>Also make sure the Application class created is registered in the <em>application</em> tag in the Manifest file.</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;application</span> <span class="na">android:icon=</span><span class="s">&quot;@drawable/icon&quot;</span> 
+               <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span>
+               <span class="na">android:name=</span><span class="s">&quot;.SampleApplication&quot;</span><span class="nt">&gt;</span></code></pre></div>
+
+<p>You are now ready to launch the app and try it out. If everything is configured as it should be,
+crashing your app will result in a crash log data report stored in the <code>/sdcard/crashLog/</code> directory.</p>
+
+<blockquote>
+  <p>A single file is created per crash with a timestamped filename. The file contents are in JavaScript
+Object Notation (JSON) and it is recommended that you use a JSON viewer to inspect the data.</p>
+</blockquote>
+
+        </div>        
+    </div>
+    </div>
+
+    <footer class="footer with-menu">
+        <div class="controls">
+            <div class="row">
+                <div class="social col-md-4">
+                    <ul class="nav nav-pills">
+                        <li><a href="https://www.facebook.com/wincornixdorf.de" target="_blank"> <i class="fa fa-2x fa-facebook-square"></i></a></li>
+                        <li><a href="https://twitter.com/wincornixdorf" target="_blank"> <i class="fa fa-2x fa-twitter-square"></i></a></li>
+                        <li><a href="https://plus.google.com/102902303639129288885" target="_blank"> <i class="fa fa-2x fa-google-plus-square"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/wincor-nixdorf" target="_blank"> <i class="fa fa-2x fa-linkedin-square"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copy col-md-8">
+                    <h5>AEVI by Wincor-Nixdorf</h5>
+                    <p>Copyright &copy; 2015. All rights reserved</p>
+                    <p><a href="http://www.wincor-nixdorf.com/">http://www.wincor-nixdorf.com/</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="logo"><img src="../assets/img/wincor-logo.png" alt="Wincor Nixdorf Logo" /></div>
+    </footer>
+</div>
+
+
+<script type="text/javascript" src="../assets/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="../assets/js/site.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</body>
+</html>

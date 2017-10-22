@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AEVI SDK documentation v2.3.0</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="../assets/css/aevi.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/docs.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/glyphicons.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body class="url_guides_financial_transactions categories_guides layout_default">
+
+<div id="main" class="layout">
+
+    <header class="header with-menu">
+        <div class="menu-toggle">
+            <button class="btn btn-default btn-sm"><i class="fa fa-lg fa-bars"></i></button>
+        </div>
+        <div class="brand"><a href="../index.html"><img src="../assets/img/logo.jpg" alt="Site Logo"></a></div>
+        <div class="controls right">
+            <div class="advert">Support? Email <a href="mailto:aevi.sdk@wincor-nixdorf.com" class="advert">support@aevi.com</a></div>
+            <div class="user"></div>
+        </div>
+    </header>
+
+    <div class="clearfix">
+    <div class="sidebar closed">
+    <nav>
+        <ul class="nav">
+            <li>
+                <a href="../index.html"><i class="fa fa-lg fa-book"></i> SDK Documentation</a>
+            </li>
+            
+            <li>
+                <a href="../introduction/index.html"><i class="fa fa-lg fa-bookmark"></i> Introduction</a>
+                
+        </li>
+        <li>
+            <a href="../guides/index.html"><i class="fa fa-lg fa-bookmark"></i> Guides</a>
+            
+            <ul class="nav">
+                
+                
+        
+                
+        
+                
+                
+        
+        
+                
+        
+                
+        
+                
+                
+                <li class="active"><a href="../guides/financial-transactions.html">Financial Transactions</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../guides/getting-started.html">Getting started</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../guides/app-integrity.html">Maintaining App Integrity</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../guides/configuration-api.html">Configuration and Status</a></li>
+        
+        
+        
+                
+        
+                
+                
+                <li><a href="../guides/card-api.html">Card Readers</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../guides/mail-api.html">Mail Service</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../guides/led-api.html">LED Service</a></li>
+        
+        
+        
+                
+        
+                
+                
+                <li><a href="../guides/user-authentication.html">User Authentication</a></li>
+        
+        
+        
+                
+                
+                <li><a href="../guides/printing-api.html">Printing Service</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../guides/crashlog-api.html">Crash Log Service</a></li>
+        
+        
+        
+                
+                
+                <li><a href="../guides/transactionlog-api.html">Transaction Log Service</a></li>
+        
+        
+        
+                
+                
+                <li><a href="../guides/shared-preferences-api.html">Shared Preferences Service</a></li>
+        
+        
+        
+                
+                
+                <li><a href="../guides/systembar.html">System Bar</a></li>
+        
+        
+        
+                
+                
+                <li><a href="../guides/camera-guide.html">Using the Camera</a></li>
+        
+        
+        
+        </ul>
+        
+        </li>
+        <li>
+            <a href="../reference/index.html"><i class="fa fa-lg fa-coffee"></i> Reference</a>
+            
+        </li>
+        </ul>
+    </nav>
+</div>
+
+    <div class="content with-menu" role="main">
+        <ol class="breadcrumb">
+            <li><a href="#">AEVI SDK v2.3.0</a></li>
+        </ol>
+        <div role="content">
+            <h1>Introduction to Financial Transactions</h1>
+            <p>This chapter introduces the concepts of card based financial transactions to those developers who have little or no 
+prior experience. This is intended to be a general introduction and each Bank will have specific rules and 
+regulations. Please check with the Bank for additional details.</p>
+
+<h2 id="transaction-types">Transaction types</h2>
+
+<p>The Payment API supports a number of different transaction types. Below is an overview of the transaction types
+currently available to app developers detailing its purpose and dynamics.</p>
+
+<h3 id="payment">Payment</h3>
+
+<p>A <em>Payment Transaction</em> is the most commonly used transaction type available in the Payment API. It transfers money from
+one party (such as a customer) to another (such as a merchant) and it is usually made in exchange for the provision of
+goods, services or both.</p>
+
+<p>In this transaction both the card and cardholder are present at the merchant outlet and verification of the cardholder
+may be done via PIN or signature, or in some cases may not be required. Authorisation of the transaction may be obtained
+from a remote financial host system or may be performed locally by the payment app on Albert.</p>
+
+<p>Albert is capable of accepting payments from magnetic stripe cards, chip cards (smart cards), contact-less cards, and
+Near Field Communications solutions on mobile devices. The payment options available to the customer may differ
+depending on the technology built into the card by the card issuer, the business rules and restrictions specified by the
+Bank. These are maintained both at the financial host and on Albert for different cards, the device functions and
+card payment facilities, enabled for the merchant.</p>
+
+<p>A payment typically ends with the printing of a receipt (for the merchant, or the customer, or both) and the logging of
+the transaction details for the merchant’s records.</p>
+
+<h3 id="refund">Refund</h3>
+
+<p>A Refund Transaction is processed in the same way as a Payment Transaction, except that upon settlement the value of the
+transaction is transferred from the merchant’s account back to the cardholder’s account.</p>
+
+<p>Refunds are not always directly linked to the original payment being refunded. It may occur days or even weeks after the
+original payment transaction was processed, and may use a different card to the one used in the original payment
+transaction. As the money will be going out of the merchant’s account into the customer/cardholder’s account, refunds
+tend to be governed by the merchant’s refund policies (e.g. return period) and procedures (e.g. checking the purchase
+receipt), and are usually done at the merchant’s discretion.</p>
+
+<p>Just like payments, refunds are processed with both the card and cardholder present at the merchant site.</p>
+
+<h3 id="mail-order--telephone-order-payment-and-refund">Mail Order / Telephone Order Payment and Refund</h3>
+
+<p>Mail Order/Telephone Order transaction (MOTO) is a card payment processing service offered by many merchant banks and
+eCommerce solution providers, where neither the card nor the cardholder are physically present at the merchant site as
+the transaction is being processed. Hence, MOTO transactions are referred to as card-not-present transactions.</p>
+
+<p>To process a MOTO transaction, the following cardholder details are typically needed:</p>
+
+<ul>
+  <li>Credit Card number/Personal Account Number (PAN) – the number across the centre of the card</li>
+  <li>Name as it appears on the card – including any initials</li>
+  <li>Card expiry date</li>
+  <li>Card Security Code (CSC, CVC, CCV, or CVV) – three-digit code at the end of the signature strip at the back of the
+card or four-digit code on the front of the card.</li>
+</ul>
+
+<blockquote>
+  <p>A PIN is never needed to process a MOTO transaction and customers should never be asked for it.</p>
+</blockquote>
+
+<p>The risk profile for MOTO transactions is different to card-present transactions. Hence, the service is not available to
+all merchants.</p>
+
+<h3 id="pre-authorisation">Pre-Authorisation</h3>
+
+<p>Pre-Authorisation is a card payment where an amount is reserved or held without being immediately deducted from an
+account.
+This is typically done using credit cards and a well known examples include car rental and hotel check-in where the
+final amount of the transaction is not known.</p>
+
+<p>The amount is blocked for a period (dependent on merchant bank policies) and can be claimed by sending a Completion
+request. If no request is sent, the reservation expires and the hold is released.</p>
+
+<h4 id="completion">Completion</h4>
+
+<p>Completion is the second step in a Pre Authorisation transaction. After a reservation has been made the actual transfer
+is the amount is executed by sending this request. Each merchant bank has specific rules around the completion process,
+and procedures vary when the final amount exceeds or alternatively is sufficiently less than the hold amount.</p>
+
+<h3 id="deposit">Deposit</h3>
+
+<p>A <em>Deposit Transaction</em> is a transaction where funds are transferred to the Cardholder’s Account.<br />
+Whilst similar to a <em>Refund Transaction</em>, this type of transaction is typically undertaken in specific circumstances. For example:</p>
+
+<ul>
+  <li>The money to be returned to the Cardholder’s account exceeds the original purchase amount. This is typically the case when paying out
+winnings in a Gambling or Gaming environment.</li>
+  <li>The money to be returned or must originate from an alternative source. A specific example of this scenario is a Medical Claim where a
+payment is made in full by the cardholder to the Health Service provider and a separate partial ‘refund’ is made by a Health Insurer or Government based scheme back to the Cardholder.</li>
+  <li>The money to be deposited is not associated with a purchase.</li>
+</ul>
+
+<p>Unlike the other transaction types described here, the <em>Deposit Transaction</em> is not a regular transaction type. It will have limited support
+and must only be used in specific circumstances and scenarios. Further information on availability and use of the <em>Deposit Transaction</em> is
+available from Banks, Acquirers or Retailers.</p>
+
+<h3 id="token-request">Token Request</h3>
+
+<p>A <em>Token Request</em> is a transaction where the payment application is used create a token that can be used with a third party service
+usually for the purposes of repeat or subscription payments on the cardholder’s account. The request can be created with a zero or positive amount.
+If a positive amount is set this will be used to set an initial payment that is taken from the cardholder’s account.</p>
+
+<p>The token will be returned by the payment application as part of the transaction references. Once the token
+has been returned by the payment application it should be used in conjunction with an online 3rd party service
+to complete the setup of the recurring payment. The actual details of the token will be specific
+to the bank, acquirer or retailer and the transaction result from the payment application may contain other data relevant
+for setting up the recurring payment with the online service.</p>
+
+<p>Unlike the other transaction types described here, the <em>Token Request Transaction</em> is not a regular transaction type. It will have limited support
+and must only be used in specific circumstances and scenarios. Further information on availability and use of the <em>Token Request Transaction</em> is
+available from Banks, Acquirers or Retailers.</p>
+
+<h3 id="reversal">Reversal</h3>
+
+<p>A <em>Reversal Transaction</em> is a special transaction in which the last <em>Payment</em>, <em>MoTo Payment</em>, <em>Refund</em>, or
+<em>MoTo Refund</em> is revoked.</p>
+
+<p>It may be performed automatically by the payment app if it sends a transaction request to the financial host and does
+not receive a response, or if the Calling app fails to send a confirmation to the payment app after the payment request
+is successfully completed.</p>
+
+<p>As an example, a Calling app initiated reversal could be used for a telephone top-up system. Both a payment request (to
+the payment app) and a top-up request (to the remote top-up system) need to be completed successfully to complete a top-
+up transaction.If the payment request is successful but the top-up request is declined (due to the telephone number not
+being recognised by the top-up system), the payment transaction must be reversed. The Calling app must therefore request
+the Payment app to perform a reversal (or not send a confirmation to the Payment app) before the top-up transaction is
+completed and new transactions can be initiated.</p>
+
+<p>A Reversal differs from a Refund transaction in that a Refund, just like the original Payment, is reported as a
+transaction item on the cardholder’s card statement. In a Reversal scenario, however, neither the revoked payment nor
+the reversal appears on the cardholder’s card statement.</p>
+
+<p>Please note that only the last <em>Payment</em>, <em>MoTo Payment</em>, <em>Refund</em>, or <em>MoTo Refund</em> transaction executed on Albert can
+be reversed. The Calling app must supply all Transaction Reference of the original transaction to the Payment app and
+the reversal must occur within the session time-out period. As soon as a new transaction is processed, the new
+transaction becomes the next reversible transaction, and any previous transactions can no longer be reversed.</p>
+
+<h2 id="transaction-references">Transaction References</h2>
+
+<p>Each transaction that is processed by the Payment app is assigned one or more <em>Transaction References</em>. A Transaction
+Reference is either a number or string with some property associated to a transaction. Examples are the (masked)
+card number of the card used during the payment, the currency of the transaction and the ids generated by a
+Financial Host system to combine different messages throughout the life-cycle of a transaction. These numbers
+can be used to print a customer receipt and are often required to complete or revert certain transaction types.</p>
+
+<p>Each Financial Host system will, depending on the underlying protocol and conventions, return a different set of numbers
+and other types of information. The Payment API offers a generic way of accessing these references via the use of the
+key/value set, more commonly known as a <em>hash table</em>. This hash table contains a list of values, each identified
+with their own unique key that indicates either a type or purpose.</p>
+
+<p>For a detailed overview of the <em>Transaction References</em> and properties returned, please see the
+<a href="../reference/transaction-results.html">Transaction Results</a> chapter.</p>
+
+<h2 id="data-masking">Data masking</h2>
+
+<p>The <em>Transaction References</em> may contain information about the card and account that was used to complete a Payment or
+other type of request. For example the number of a payment card or the expiry date associated with a credit card may be
+returned to the app.</p>
+
+<p>To comply with various financial regulations and other compliance rules to prevent identity theft and card fraud, some
+elements returned by the Payment app or Financial Host may need to be secured via data protection or data masking.</p>
+
+<p>This masking of certain fields is commonly applied to financial card data in payment systems as a simple but effective
+method of preventing sensitive information from being stolen and used illegally. For instance, a billing reference
+to a credit card will only contain the last 6 digits of the card’s number with its leading numbers masked.</p>
+
+<p>An example of such masking is as follows:</p>
+
+<pre><code>XXXX XXXX XX45 6789
+</code></pre>
+
+<p>More or less digits may be visible, depending on how Albert is configured.</p>
+
+<h2 id="other-terms">Other Terms</h2>
+
+<p>There are a number of other terms used in this documentation:</p>
+
+<ul>
+  <li><strong>Merchant:</strong> The retailer or business that sells goods or services and accepts payments via Credit or Debit card.</li>
+  <li><strong>Acquirer:</strong> A bank or other organisation that processes and settles a merchant’s credit card transactions with the help of a card issuer. </li>
+  <li><strong>Issuer:</strong> A financial institution, bank, credit union or company that issues or helps issue cards to cardholders.</li>
+  <li><strong>Authorisation:</strong> The first step in processing a credit card. After the card is presented for payment, the data is submitted to the acquirer to request authorization for the transaction. The acquirer then routes the request to the card-issuing bank, optionally via the ‘Card Network’ where it is authorized or denied.</li>
+  <li><strong>Cardholder</strong>: The owner of a card that is used to make credit card purchases.</li>
+  <li><strong>Card Scheme:</strong> Visa, MasterCard or other schemes that act as an intermediary between an acquirer and an issuer to authorize credit card transactions.</li>
+</ul>
+
+        </div>        
+    </div>
+    </div>
+
+    <footer class="footer with-menu">
+        <div class="controls">
+            <div class="row">
+                <div class="social col-md-4">
+                    <ul class="nav nav-pills">
+                        <li><a href="https://www.facebook.com/wincornixdorf.de" target="_blank"> <i class="fa fa-2x fa-facebook-square"></i></a></li>
+                        <li><a href="https://twitter.com/wincornixdorf" target="_blank"> <i class="fa fa-2x fa-twitter-square"></i></a></li>
+                        <li><a href="https://plus.google.com/102902303639129288885" target="_blank"> <i class="fa fa-2x fa-google-plus-square"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/wincor-nixdorf" target="_blank"> <i class="fa fa-2x fa-linkedin-square"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copy col-md-8">
+                    <h5>AEVI by Wincor-Nixdorf</h5>
+                    <p>Copyright &copy; 2015. All rights reserved</p>
+                    <p><a href="http://www.wincor-nixdorf.com/">http://www.wincor-nixdorf.com/</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="logo"><img src="../assets/img/wincor-logo.png" alt="Wincor Nixdorf Logo" /></div>
+    </footer>
+</div>
+
+
+<script type="text/javascript" src="../assets/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="../assets/js/site.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</body>
+</html>

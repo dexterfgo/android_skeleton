@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AEVI SDK documentation v2.3.0</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="../assets/css/aevi.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/docs.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/glyphicons.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body class="url_introduction_sdk_intro categories_introduction layout_default">
+
+<div id="main" class="layout">
+
+    <header class="header with-menu">
+        <div class="menu-toggle">
+            <button class="btn btn-default btn-sm"><i class="fa fa-lg fa-bars"></i></button>
+        </div>
+        <div class="brand"><a href="../index.html"><img src="../assets/img/logo.jpg" alt="Site Logo"></a></div>
+        <div class="controls right">
+            <div class="advert">Support? Email <a href="mailto:aevi.sdk@wincor-nixdorf.com" class="advert">support@aevi.com</a></div>
+            <div class="user"></div>
+        </div>
+    </header>
+
+    <div class="clearfix">
+    <div class="sidebar closed">
+    <nav>
+        <ul class="nav">
+            <li>
+                <a href="../index.html"><i class="fa fa-lg fa-book"></i> SDK Documentation</a>
+            </li>
+            
+            <li>
+                <a href="../introduction/index.html"><i class="fa fa-lg fa-bookmark"></i> Introduction</a>
+                
+                <ul class="nav">
+                    
+                    
+                    
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/albert-intro.html">Albert Introduction</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li class="active"><a href="../introduction/sdk-intro.html">AEVI SDK Introduction</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/whats-new-2.html">What's new in SDK 2.x.x</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sdk-install.html">Installation Guide</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sample-apps.html">Sample Applications</a></li>
+            
+            
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/api-compatibility.html">API Compatibility</a></li>
+            
+            
+            
+                    
+                    
+                    <li><a href="../introduction/dev-lifecycle.html">App Development Lifecycle</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/platform-hardening.html">Platform Hardening</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/aevi-emulator.html">AEVI Emulator</a></li>
+            
+            
+            
+                    
+                    
+                    <li><a href="../introduction/albert-developer-device.html">Developer Device</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+        </ul>
+        
+        </li>
+        <li>
+            <a href="../guides/index.html"><i class="fa fa-lg fa-bookmark"></i> Guides</a>
+            
+        </li>
+        <li>
+            <a href="../reference/index.html"><i class="fa fa-lg fa-coffee"></i> Reference</a>
+            
+        </li>
+        </ul>
+    </nav>
+</div>
+
+    <div class="content with-menu" role="main">
+        <ol class="breadcrumb">
+            <li><a href="#">AEVI SDK v2.3.0</a></li>
+        </ol>
+        <div role="content">
+            <h1>AEVI SDK Introduction</h1>
+            <p>We recognise that the ultimate success of this platform dependents on the support of the developer community. 
+Therefore, from the outset, we have prioritised the release of the AEVI Software Development Kit (SDK).</p>
+
+<p>The AEVI SDK for Albert provides you with everything you need to integrate your Android app with the features and
+functionality of Albert, including the ability for your app to take payments.</p>
+
+<h2 id="aevi-sdk-design-criteria">AEVI SDK Design Criteria</h2>
+
+<p>We defined a number of design criteria to guide us through the development of the AEVI SDK:</p>
+
+<ul>
+  <li>The AEVI SDK is predominantly for developers to create business apps and utilities that will add commercial
+value to both the Merchants and Cardholding Customers.</li>
+  <li>We do not expect developers to write or port games to the platform, nor do we expect that merchants 
+will wish to install them.</li>
+  <li>The AEVI SDK should be easy to use by developers with limited  experience of payment processes or the banking industry.</li>
+  <li>The AEVI SDK should apply universally across all Banks.</li>
+  <li>The AEVI SDK should be flexible and not prescribe a specific architecture or design for an app.</li>
+  <li>Porting and integrating existing Android apps should be simple and straightforward.</li>
+  <li>Maintaining the integrity of the Platform and the data on the platform is the key. To ensure platform and data 
+integrity, the AEVI SDK does not expose any functionality that might increase the risk to either the platform, or
+the financial data held by it.</li>
+  <li>The AEVI SDK should be simple and straightforward to use by the majority of developers (further advice to be
+available through the Developers Portal).</li>
+  <li>The Developer is our most important Customer and we want them to be delighted with the service we provide.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Caution!</strong>
+Not all banks support the same functionality. Before building an app that requires certain features please check the
+<a href="&quot;../introduction/api-compatibility.html&quot;">API compatibility table</a></p>
+</blockquote>
+
+<h2 id="documentation-structure">Documentation Structure</h2>
+
+<p>The AEVI SDK Documentation comprises three main volumes: Introduction, Tutorials and Reference. The Introduction
+volume will help you to familiarise yourself with Albert, the Platform, the Development process and any 
+specific customisation made to Android. The Tutorials aim to familiarise you with the APIs. The Reference Volume 
+is a useful reference for both novices and seasoned developers alike. </p>
+
+<h2 id="pre-requisites">Pre-requisites</h2>
+
+<p>In order to use the AEVI SDK, you will require some previous experience of developing Java based Android apps
+together with a suitable development environment, such as:</p>
+
+<ul>
+  <li>A Computer with the latest version of the Android SDK installed - See 
+<a href="http://developer.android.com/sdk/index.html">Get the Android SDK</a>,</li>
+  <li>A Tablet running Android 4.0.x or later with a screen resolution of 1280x800 (tvdpi). The Google Nexus 7 (2012) 
+is recommended as the screen resolution is identical to that of the Device. (Ensure that Developer mode is enabled 
+and you are able to access the device using the Android Debug Bridge (ADB) utility).</li>
+  <li>An alternative option is to use the emulator that is distributed with the Android SDK. However, we strongly 
+recommend using a generic Tablet for developing and debugging as the Android Emulator can be slow.  </li>
+  <li>An Integrated Development Environment (IDE) that supports Android. </li>
+</ul>
+
+<blockquote>
+  <p><strong>Note:</strong> Android versions 4.1.x onwards have separated the navigation buttons from notifications
+resulting in a navigation bar at the bottom of the screen and a notification bar at the top.
+This differs to Android 4.0.x on which the Albert Device is based. This will have
+an impact on the amount of vertical screen space your App will have available.</p>
+</blockquote>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>We recommend that all developers start off by installing and trying out the Sample apps. Once you have seen these 
+in action you can review the source code.  Alternatively, follow the 
+<a href="../guides/getting-started.html">Getting started with the ‘Payment API’</a> tutorial.</p>
+
+<p>Having built a simple app that takes payment, read through the rest of the documentation and follow the other tutorials.</p>
+
+<h2 id="api-overview">API Overview</h2>
+
+<p>We have identified a number of APIs that we believe will be useful for the developer community. The current release of the AEVI SDK is v2.3.0.
+The table below provides an overview of the APIs that will be delivered with the AEVI SDK.
+For future release dates please refer to the Developer Portal.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>API</th>
+      <th>Description</th>
+      <th>Availability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Payment</td>
+      <td>Generic payment API enabling a third party app to initiate a payment request.</td>
+      <td>NOW</td>
+    </tr>
+    <tr>
+      <td>Print</td>
+      <td>Enables printing using the integrated printer. Support for both text and graphic printing.</td>
+      <td>NOW</td>
+    </tr>
+    <tr>
+      <td>Crash Log</td>
+      <td>Captures logs when an app crashes and forwards this to the Device Management System and Developer.</td>
+      <td>NOW</td>
+    </tr>
+    <tr>
+      <td>Card Reading</td>
+      <td>Ability for third party apps to read cards (magstripe and Chip), intended to support loyalty cards.</td>
+      <td>NOW</td>
+    </tr>
+    <tr>
+      <td>Transaction logs</td>
+      <td>Supports a model where apps are licensed/charged based on usage.</td>
+      <td>NOW</td>
+    </tr>
+    <tr>
+      <td>Simple User Authentication</td>
+      <td>Enables app developers to use the authentication roles and services devised for Albert.</td>
+      <td>NOW</td>
+    </tr>
+    <tr>
+      <td>Synchronised Shared Preferences</td>
+      <td>Allows app configuration data to be synchronised with the Device Management System enabling Remote Configuration and Management.</td>
+      <td>NOW</td>
+    </tr>
+    <tr>
+      <td>Configuration</td>
+      <td>Enables an app to identify the Device type and access key device identifiers such as the Device ID.</td>
+      <td>NOW</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>Enables an app to send emails to any recipient using the credentials set on the Platform.</td>
+      <td>NOW</td>
+    </tr>
+    <tr>
+      <td>LED Notification</td>
+      <td>API to control the Albert tri-colour Notification LED.</td>
+      <td>NOW</td>
+    </tr>
+    <tr>
+      <td>NFC</td>
+      <td>Enables an app to interact with the NFC reading in Albert.</td>
+      <td>PLANNED</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="api-architecture">API Architecture</h2>
+
+<p>Albert comes with a set of apps that enables it to process card based payments. The payment app is 
+responsible for communicating with the bank’s financial host and interfacing with various card schemes and protocols.</p>
+
+<p>An app uses the payment app and other platform services through the payment API. This approach ensures 
+that the apps remain outside the scope of (Payment Card Industry) PCI Accreditation.</p>
+
+<p>The following figure gives a logical overview of the application landscape and where the app fits.</p>
+
+<div class="figure">
+	<img src="../img/introduction/logical-overview.png" />
+	<span>Application Logical Overview</span> 
+</div>
+
+<h3 id="operating-scenarios">Operating scenarios</h3>
+
+<p>The Device can run in two different modes:</p>
+
+<ul>
+  <li>
+    <p><strong>Standalone Mode.</strong>
+Also known as ‘master mode’. In this mode Albert is not connected to any external entity such as an ECR or POS system. 
+When operating in this mode the apps only have limited control of the payment workflow. Apps must specify the payment 
+request, and then the payment app takes control, executes the request and provides a response. The app cannot alter the 
+steps needed by the payment app to fulfil the requested transaction.</p>
+  </li>
+  <li>
+    <p><strong>Integrated Mode.</strong>
+Also known as ‘slave mode’. In this mode the payment app running on Albert is fully controlled by a specific third party 
+app. The controlling app is typically an ECR or POS system. This mode allows the app to take full control over 
+the payment app, specifying precise behaviour and influencing the transaction flow.</p>
+  </li>
+</ul>
+
+<p>Notes:  </p>
+
+<ol>
+  <li>The payment APIs only work in standalone mode.</li>
+  <li>The integrated mode is still in development, and is not currently available.</li>
+</ol>
+
+<h2 id="release-notes">Release Notes</h2>
+
+<p>The Release Notes can be found <a href="../reference/release-notes.html">here</a>.</p>
+
+        </div>        
+    </div>
+    </div>
+
+    <footer class="footer with-menu">
+        <div class="controls">
+            <div class="row">
+                <div class="social col-md-4">
+                    <ul class="nav nav-pills">
+                        <li><a href="https://www.facebook.com/wincornixdorf.de" target="_blank"> <i class="fa fa-2x fa-facebook-square"></i></a></li>
+                        <li><a href="https://twitter.com/wincornixdorf" target="_blank"> <i class="fa fa-2x fa-twitter-square"></i></a></li>
+                        <li><a href="https://plus.google.com/102902303639129288885" target="_blank"> <i class="fa fa-2x fa-google-plus-square"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/wincor-nixdorf" target="_blank"> <i class="fa fa-2x fa-linkedin-square"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copy col-md-8">
+                    <h5>AEVI by Wincor-Nixdorf</h5>
+                    <p>Copyright &copy; 2015. All rights reserved</p>
+                    <p><a href="http://www.wincor-nixdorf.com/">http://www.wincor-nixdorf.com/</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="logo"><img src="../assets/img/wincor-logo.png" alt="Wincor Nixdorf Logo" /></div>
+    </footer>
+</div>
+
+
+<script type="text/javascript" src="../assets/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="../assets/js/site.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</body>
+</html>

@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AEVI SDK documentation v2.3.0</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="../assets/css/aevi.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/docs.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/glyphicons.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body class="url_introduction_platform_hardening categories_introduction layout_default">
+
+<div id="main" class="layout">
+
+    <header class="header with-menu">
+        <div class="menu-toggle">
+            <button class="btn btn-default btn-sm"><i class="fa fa-lg fa-bars"></i></button>
+        </div>
+        <div class="brand"><a href="../index.html"><img src="../assets/img/logo.jpg" alt="Site Logo"></a></div>
+        <div class="controls right">
+            <div class="advert">Support? Email <a href="mailto:aevi.sdk@wincor-nixdorf.com" class="advert">support@aevi.com</a></div>
+            <div class="user"></div>
+        </div>
+    </header>
+
+    <div class="clearfix">
+    <div class="sidebar closed">
+    <nav>
+        <ul class="nav">
+            <li>
+                <a href="../index.html"><i class="fa fa-lg fa-book"></i> SDK Documentation</a>
+            </li>
+            
+            <li>
+                <a href="../introduction/index.html"><i class="fa fa-lg fa-bookmark"></i> Introduction</a>
+                
+                <ul class="nav">
+                    
+                    
+                    
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/albert-intro.html">Albert Introduction</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sdk-intro.html">AEVI SDK Introduction</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/whats-new-2.html">What's new in SDK 2.x.x</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sdk-install.html">Installation Guide</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sample-apps.html">Sample Applications</a></li>
+            
+            
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/api-compatibility.html">API Compatibility</a></li>
+            
+            
+            
+                    
+                    
+                    <li><a href="../introduction/dev-lifecycle.html">App Development Lifecycle</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li class="active"><a href="../introduction/platform-hardening.html">Platform Hardening</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/aevi-emulator.html">AEVI Emulator</a></li>
+            
+            
+            
+                    
+                    
+                    <li><a href="../introduction/albert-developer-device.html">Developer Device</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+        </ul>
+        
+        </li>
+        <li>
+            <a href="../guides/index.html"><i class="fa fa-lg fa-bookmark"></i> Guides</a>
+            
+        </li>
+        <li>
+            <a href="../reference/index.html"><i class="fa fa-lg fa-coffee"></i> Reference</a>
+            
+        </li>
+        </ul>
+    </nav>
+</div>
+
+    <div class="content with-menu" role="main">
+        <ol class="breadcrumb">
+            <li><a href="#">AEVI SDK v2.3.0</a></li>
+        </ol>
+        <div role="content">
+            <h1>Platform Hardening, Customisations & Restrictions</h1>
+            <div class="panel panel-default quickindex"><div class="panel-heading">Quick Index</div>
+<ul class="nav"><li><a href="#android-hardening">Android Hardening</a></li><li><a href="#network-restrictions">Network restrictions</a></li><li><a href="#app-signing">App Signing</a></li><li><a href="#launcher-app-icon-size">Launcher App Icon Size</a></li><li><a href="#available-apps">Available Apps</a></li><li><a href="#access-to-standard-android-apis">Access to Standard Android APIs</a></li><li><a href="#customisations">Customisations</a></li><li><a href="#access-to-system-settings">Access to System Settings</a></li><li><a href="#other-restrictions--limitations">Other Restrictions &amp; Limitations</a></li><li><a href="#policy-restrictions">Policy Restrictions</a></li><li><a href="#electronic-cash-register-integration">Electronic Cash Register Integration</a></li></ul></div>
+<p>In order to create a secure device that can be approved for use as a Payment Terminal, we have had to harden and 
+restrict the core Android platform. This section provides information on these modifications and the restrictions 
+carried out.</p>
+
+<h2 id="android-hardening">Android Hardening</h2>
+
+<p>A number of complementary measures have been undertaken to secure the Albert Platform from a Software and Firmware 
+perspective:</p>
+
+<ul>
+  <li>Albert runs on the Security Enhanced version of Android (SEAndroid)</li>
+  <li>The Kernel and System have been hardened</li>
+  <li>All apps installed on Albert are Type Enforced - restricting their access to Services needed</li>
+  <li>A Trusted Communications Manager (TCM) has been implemented - this enforces the requirement for declarative access to Network Services via an App’s Android Manifest</li>
+  <li>Albert includes a firewall to control network traffic</li>
+  <li>All App Install files (APKs) must be signed by the Bank prior to installation</li>
+  <li>The Payment App runs in a hardened Sandbox. Access to the Payment App is restricted to a limited set of APIs</li>
+</ul>
+
+<h3 id="security-enhanced-android">Security Enhanced Android</h3>
+
+<p>In the OS, we have applied SEAndroid patches to the kernel and system services in order to be able to enforce mandatory 
+Type Enforcement (TE) security policies.</p>
+
+<p>For further information please visit
+<a href="http://selinuxproject.org/page/SEAndroid">Security Enhancements for Android</a>.</p>
+
+<h4 id="kernel--system-hardening">Kernel &amp; System Hardening</h4>
+
+<p>A number of mechanisms have been introduced to harden the kernel and system. These typically include isolation 
+mechanisms and follow a ‘least privilege’ principle.</p>
+
+<ul>
+  <li>Privileges of system services have been reduced</li>
+  <li>Type Enforcement policies have been defined that restrict the system services access only to the resources they need</li>
+  <li>Redundant modules (such as device drivers) have been removed from the kernel</li>
+  <li>Additional system security services have been introduced. These include an UpdateManager which is responsible for 
+managing Firmware updates. It also includes a Trusted Communications Manager (TCM) which is responsible for controlling 
+Network access per app</li>
+  <li>Mandatory type enforcement for all apps and services</li>
+  <li>Insecure default configuration options have been removed</li>
+  <li>Installation of Android apps by non-authorised services is prevented</li>
+  <li>Access to critical/internal storage is disabled (an example of a critical/internal storage is: /dev/kmem)</li>
+  <li>Access to sensitive file locations is prohibited</li>
+  <li>Apps are prevented from accessing data directories of other apps</li>
+  <li>Android Debug Bridge is not available on production devices</li>
+  <li>Hardware devices are mapped to virtual devices. Type enforcement is used to control access to virtual devices</li>
+  <li>The code complexity of system services has been reduced by removing non-relevant library references and by using 
+hardened library code</li>
+  <li>Network tethering is disabled</li>
+  <li>Access to the Internet is disabled for USB &amp; Bluetooth Modems. These devices are limited to supporting 
+Payment transaction processing.</li>
+</ul>
+
+<h4 id="type-enforcement">Type Enforcement</h4>
+
+<p>The Type Enforcement system imposes a mandatory and strict separation of system processes, according to least privilege. 
+In addition, the system also imposes strict separation of apps from the firmware. The solution is based on SELinux and 
+SEAndroid. Type Enforcement has also been extended to enforce separation between different types of apps. For App developers, the 
+following types are available:</p>
+
+<ul>
+  <li><strong>Merchant</strong> - apps that require access to the AEVI SDK Services</li>
+  <li><strong>Network</strong> - apps without any requirement for access to AEVI SDK Services</li>
+</ul>
+
+<p>The Table below illustrates in detail the access enabled for each app type of App:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sensitive System Service</th>
+      <th style="text-align: center">Network</th>
+      <th style="text-align: center">Merchant</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Access to AEVI-SDK</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>Allow Network Socket Access</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>Network Access (Encrypted &amp; Unencrypted)</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>USB (Host Mode)</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>Bluetooth</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>Contact Reader for Chip Cards</td>
+      <td style="text-align: center">(Future)</td>
+      <td style="text-align: center">(Future)</td>
+    </tr>
+    <tr>
+      <td>Contactless Reader (NFC)</td>
+      <td style="text-align: center">(Future)</td>
+      <td style="text-align: center">(Future)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The Type Enforcement Mechanism also limits inter-app communication between app types. For example, whilst a Network app 
+can call another Network app, a Network app cannot call a Merchant app. The converse is also true; a Payment 
+Relevant app can call a Payment Relevant but cannot call a Network App.</p>
+
+<p>All apps must define the app type in the Android Manifest. Please see the <a href="../reference/permissions-and-manifest.html">Manifest</a> section.</p>
+
+<h2 id="network-restrictions">Network restrictions</h2>
+
+<h3 id="trusted-communications-manager">Trusted Communications Manager</h3>
+
+<p>As with standard Android, the basic network policy for Apps on Albert is controlled by standard Android permissions defined 
+in the application manifest. In summary there are two network access levels defined by Android:</p>
+
+<ul>
+  <li>Apps that have the internet permission defined have full access to the network</li>
+  <li>Apps that do not have the internet permission have no network access</li>
+</ul>
+
+<p>In addition, access to the network is further controlled by the Trusted Communications Manager (TCM) which uses iptables to implement 
+a System-Wide enforcement of the network security policy; iptables rules are embedded in the apps Android Manifest. </p>
+
+<p>In summary, Apps are required to declare the domains and/or the IP addresses to which they connect within the App Android Manifest. During installation, these rules are extracted and the iptables updated. Note that, subject to Bank approval, wildcards can be used for IP 
+Addresses and Domains within the Manifest.</p>
+
+<p>Please see the <a href="../reference/permissions-and-manifest.html#network-access">Network Access</a> section
+for configuration details.</p>
+
+<h3 id="bank-imposed-restrictions">Bank imposed restrictions</h3>
+
+<p>Please note that the Bank may impose network bandwidth restrictions on Apps when Albert is connected via a 3G Modem. Further information
+will be made available on the Developer Portal in due course.</p>
+
+<h2 id="app-signing">App Signing</h2>
+
+<p>The Operating System has been modified to verify the Signature of all apps installed, ensuring they have been signed by 
+the Bank. This means that all apps will require approval by the Bank. Please refer to the Developer Portal for 
+further information.</p>
+
+<h2 id="launcher-app-icon-size">Launcher App Icon Size</h2>
+
+<p>The Albert has a high-density screen and uses a custom home screen launcher with double the normal grid spacing.
+As a result the app launcher icons need to be double the linear size of a standard Android launcher icon. </p>
+
+<p>Please ensure your App icons have a size of 144x144 pixels and place them in the <code>drawable-hdpi</code> folder.</p>
+
+<h2 id="available-apps">Available Apps</h2>
+
+<p>Many of the typical stock Android tablets and phones include access to other apps such as Google Maps, Google Chrome and 
+Gmail. These are not currently offered on Albert. The following apps are available on the standard device image;</p>
+
+<ol>
+  <li>Payment app</li>
+  <li>Settings app</li>
+  <li>Standard Launcher app</li>
+</ol>
+
+<h2 id="access-to-standard-android-apis">Access to Standard Android APIs</h2>
+
+<p>The <a href="http://developer.android.com/guide/components/index.html">API Guides</a> on the Android Developer Portal identify a 
+number of APIs that are part of the Android Platform. The table below identifies the restrictions on these APIs:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>API</th>
+      <th style="text-align: center">Restrictions</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Activities,&#160;Services,&#160;Content&#160;Providers</td>
+      <td style="text-align: center">Yes</td>
+      <td>Subject to Type Enforcement Restrictions described above</td>
+    </tr>
+    <tr>
+      <td>Processes &amp; Threads</td>
+      <td style="text-align: center">None</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>App Widgets</td>
+      <td style="text-align: center">Yes</td>
+      <td>Not Supported</td>
+    </tr>
+    <tr>
+      <td>User Interface</td>
+      <td style="text-align: center">None</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>App Resources</td>
+      <td style="text-align: center">None</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Animation &amp; Graphics</td>
+      <td style="text-align: center">None</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Computation</td>
+      <td style="text-align: center">None</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Media &amp; Camera</td>
+      <td style="text-align: center">None</td>
+      <td>Camera is defined as <code>CAMERA_FACING_REAR</code>; Developers can use standard APIs to generate sounds and control the volume for both the speaker and headphones.</td>
+    </tr>
+    <tr>
+      <td>Location and Sensors</td>
+      <td style="text-align: center">Yes</td>
+      <td>Gyroscope disabled during PIN Entry Mode. Location is always available.</td>
+    </tr>
+    <tr>
+      <td>Connectivity</td>
+      <td style="text-align: center">Yes</td>
+      <td>USB, Bluetooth and NFC subject to restrictions described in Type Enforcement section above</td>
+    </tr>
+    <tr>
+      <td>Text &amp; Input</td>
+      <td style="text-align: center">None</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Text To Speech</td>
+      <td style="text-align: center">None</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Voice Recognition</td>
+      <td style="text-align: center">Yes</td>
+      <td>Not Supported</td>
+    </tr>
+    <tr>
+      <td>Data Storage</td>
+      <td style="text-align: center">Yes</td>
+      <td>Data Backup not supported. App Install Location cannot be defined</td>
+    </tr>
+    <tr>
+      <td>Device Admin</td>
+      <td style="text-align: center">Yes</td>
+      <td>Not Supported</td>
+    </tr>
+    <tr>
+      <td>Web Apps</td>
+      <td style="text-align: center">Yes</td>
+      <td>Subject to Type Enforcement &amp; Network restrictions described above</td>
+    </tr>
+    <tr>
+      <td>Send or Receive Broadcasts</td>
+      <td style="text-align: center">None</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Developers should note that all standard APIs are fully accessible. In some cases, where restrictions are in place, 
+Albert will return a null (or equivalent) value or alternatively throw an exception.</p>
+
+<h2 id="customisations">Customisations</h2>
+
+<p>Several customisations where made to the Android platform to run on the Albert hardware. The following section lists
+the one that are of interest for developers.</p>
+
+<h3 id="system-bar">System Bar</h3>
+<p>The standard Android System Bar has been customised as part of the development of Albert:</p>
+
+<ol>
+  <li>The System Bar has been placed at the top of the screen</li>
+  <li>The icons have been customised</li>
+  <li>The Navigation Buttons can be programmatically hidden</li>
+  <li>Interaction with notifications can be programmatically disabled</li>
+  <li>A Background Task Indicator is available</li>
+  <li>A Progress Notification can be displayed</li>
+</ol>
+
+<p>Further detail on using these extended features will be made available in a future release of the AEVI SDK.</p>
+
+<h3 id="lock-screen">Lock Screen</h3>
+<p>As a secure device, Albert requires entry of a screen Unlock Password (see below) both at Boot and when resuming from 
+Standby Mode.</p>
+
+<div class="figure">
+	<a href="../img/compatibility-with-android/unlock_screenshot.png" class="gallery">
+		<img class="gallery" src="../img/compatibility-with-android/unlock_screenshot.png" />
+	</a>
+	<span>Unlock screen</span> 
+</div>
+
+<p>Albert is configured to support a number of different roles:</p>
+
+<ul>
+  <li><strong>Operator</strong> : For regular Users</li>
+  <li><strong>Manager</strong> : For managers who have additional privileges on Albert. Typically used for accessing specific Administration &amp;
+Configuration functions on Albert</li>
+  <li><strong>Technician</strong> : Used by Technicians when configuring or troubleshooting issues</li>
+</ul>
+
+<p>Passwords are typically 4-6 digits long. App developers will also be able to use this mechanism to control access to 
+parts of their app in upcoming releases.</p>
+
+<h3 id="app-launcher">App Launcher</h3>
+<p>A custom Android Launcher is optionally available to Wincor Nixdorf customers comprising a number of specific features:</p>
+
+<ul>
+  <li>A larger grid of apps (typically a 4x4 array of icons)</li>
+  <li>App installation and removal is controlled by the Albert Management System</li>
+  <li>Support for multiple pages of apps</li>
+  <li>Support for app re-ordering</li>
+</ul>
+
+<p>The key limitations to be aware of include:</p>
+
+<ul>
+  <li>The Launcher app cannot be replaced by a 3rd party Launcher</li>
+  <li>Apps cannot be uninstalled from the Launcher Screen</li>
+  <li>There is no support for app Widgets</li>
+</ul>
+
+<p>Please note that, at the current time, launcher are specific to the specific Bank variant of Albert. Banks may provide alternative
+launchers and may also choose to provide the standard Android launcher that offers full Widget capability.</p>
+
+<h3 id="merchant-menu">Merchant Menu</h3>
+<p>The Merchant Menu is typically used by the merchant to select app Functionality or Options. It is accessed in one of two 
+ways:</p>
+
+<ul>
+  <li>Double Finger Swipe Down from the Top of the Screen,</li>
+  <li>Depressing the Merchant Menu Button on the Rear Face of Albert.</li>
+</ul>
+
+<p>An example of a Merchant Menu is provided below.</p>
+
+<div class="figure">
+	<a href="../img/compatibility-with-android/context_screenshot.png" class="gallery">
+		<img class="gallery" src="../img/compatibility-with-android/context_screenshot.png" />
+	</a>
+	<span>Merchant Menu screen</span> 
+</div>
+
+<p>Please note that this feature is specific to the CBA variant of Albert and is not available to app Developers as part 
+of the AEVI SDK.</p>
+
+<h3 id="custom-keyboard">Custom Keyboard</h3>
+<p>A customised Keyboard that provides a branded styling is offered to Wincor Nixdorf customers. Users of Albert can 
+choose to select an alternative keyboard.</p>
+
+<p>The custom keyboard for Albert is illustrated below:</p>
+
+<div class="figure">
+	<a href="../img/compatibility-with-android/keyboard_screenshot.png" class="gallery">
+		<img class="gallery" src="../img/compatibility-with-android/keyboard_screenshot.png" />
+	</a>
+	<span>Keyboard screen</span> 
+</div>
+
+<p>Please note that, at the current time, this feature is specific to the CBA variant of Albert.</p>
+
+<h3 id="device-leds">Device LEDs</h3>
+<p>There are a number of LEDs on Albert that provide either guidance to cardholders or the merchant.</p>
+
+<ul>
+  <li>Merchant LED on the rear of Albert - available for programmatic control by app developers</li>
+  <li>Inside the Chip Card Slot - <strong>not</strong> currently available for programmatic control by app developers</li>
+  <li>Inside the MagStripe Slot - <strong>not</strong> currently available for programmatic control by app developers</li>
+</ul>
+
+<h3 id="webview-component">Webview Component</h3>
+
+<p>At the time of writing, the Albert WebView component exposed the following User-Agent string: </p>
+
+<pre>
+Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; Paypad Build/DBG.T_005.20.0006) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+</pre>
+
+<p>The <a href="http://www.whatsmyua.com">What’s My User Agent?</a> site reports the following on Albert…</p>
+
+<pre>
+{
+  "ua": "Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; Paypad Build/DBG.T_005.20.0006) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+  "browser": {
+    "name": "Mobile Safari",
+    "version": "4.0",
+    "major": "4"
+  },
+  "engine": {
+    "name": "WebKit",
+    "version": "534.30"
+  },
+  "os": {
+    "name": "Android",
+    "version": "4.0.4"
+  },
+  "device": {},
+  "cpu": {}
+}
+</pre>
+
+<blockquote>
+  <p><strong>Note:</strong> that the OS Version Details, <code>Paypad Build/DBG.T_005.20.0006</code> will change as updates to the Albert OS are released. Furthermore, the Emulator build also provides a slightly different string here: <code>Albert (Emulator) Build/EMU_005.20.00002</code>.</p>
+</blockquote>
+
+<h2 id="access-to-system-settings">Access to System Settings</h2>
+
+<p>Albert is configured as a shared device as opposed to a typical tablet which is usually owned and used by a single 
+individual. Therefore, we have had to restrict and protect some of the configuration features present in the standard
+Android settings app.</p>
+
+<p>The Android settings app is not accessible from the launcher and a bespoke app is provided instead. This customised 
+settings app provides a simpler interface as well as providing access controls to the various settings required for 
+Albert - these use the password mechanism described above.</p>
+
+<p>The standard Android settings app can still be accessed by app developers. However, this provides access to only a 
+subset of the settings typically found on a generic Android device. The table below provides further information:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Setting / Preference</th>
+      <th style="text-align: center">App Accessible?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sound</td>
+      <td style="text-align: center">Touch Sounds - Configure</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td style="text-align: center">Rest - Not Available</td>
+    </tr>
+    <tr>
+      <td>Display</td>
+      <td style="text-align: center">Brightness - Configure</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td style="text-align: center">Sleep - View</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td style="text-align: center">Rest - Not Available</td>
+    </tr>
+    <tr>
+      <td>Storage</td>
+      <td style="text-align: center">Not Available</td>
+    </tr>
+    <tr>
+      <td>Battery</td>
+      <td style="text-align: center">View</td>
+    </tr>
+    <tr>
+      <td>Apps</td>
+      <td style="text-align: center">Not Available</td>
+    </tr>
+    <tr>
+      <td>Wi-Fi</td>
+      <td style="text-align: center">Not Available</td>
+    </tr>
+    <tr>
+      <td>Bluetooth</td>
+      <td style="text-align: center">Not Available</td>
+    </tr>
+    <tr>
+      <td>Data usage</td>
+      <td style="text-align: center">Not Available</td>
+    </tr>
+    <tr>
+      <td>More…</td>
+      <td style="text-align: center">Not Available</td>
+    </tr>
+    <tr>
+      <td>Ethernet Configuration</td>
+      <td style="text-align: center">Not Available</td>
+    </tr>
+    <tr>
+      <td>Location Services</td>
+      <td style="text-align: center">Not Available</td>
+    </tr>
+    <tr>
+      <td>Security</td>
+      <td style="text-align: center">Not Available</td>
+    </tr>
+    <tr>
+      <td>Language &amp; Input</td>
+      <td style="text-align: center">Not Available</td>
+    </tr>
+    <tr>
+      <td>Backup &amp; Reset</td>
+      <td style="text-align: center">Not Available</td>
+    </tr>
+    <tr>
+      <td>Date &amp; time</td>
+      <td style="text-align: center">Not Available</td>
+    </tr>
+    <tr>
+      <td>Accessibility</td>
+      <td style="text-align: center">Not Available</td>
+    </tr>
+    <tr>
+      <td>Developer options</td>
+      <td style="text-align: center">Not Available</td>
+    </tr>
+    <tr>
+      <td>About tablet</td>
+      <td style="text-align: center">View</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="synchronisation-of-settings-from-albert-management-system">Synchronisation of Settings from Albert Management System</h3>
+<p>Many System Settings can be controlled by the Bank using their Albert Management System. For example, 3G Access 
+Point, Wi-Fi &amp; Ethernet settings can all be set remotely.</p>
+
+<h2 id="other-restrictions--limitations">Other Restrictions &amp; Limitations</h2>
+
+<p>Furthermore, Albert is subject to the following restrictions and limitations.</p>
+
+<h4 id="installation-of-apps">Installation of apps</h4>
+<p>Apps can only be installed through an offical AEVI app store. There is no access to the Google Play Store (or any other third party
+app store). Furthermore, all apps must be signed by the Bank or they will be rejected by the Package Manager. The 
+Albert Management System (comprising an Agent on Albert and  a Bank hosted service) is responsible for the 
+installation, removal and update of apps on Albert. Whilst the Albert Management System operates in the background, and 
+users never interact with it, it occasionally displays notification messages on the screen to advise of background 
+activity.</p>
+
+<h4 id="access-to-phone-and-messaging-services">Access to Phone and Messaging Services</h4>
+<p>Whilst Albert includes a 3G Modem and Data Card, there is no Phone or Messaging capability.</p>
+
+<h4 id="use-of-the-native-development-kit">Use of the Native Development Kit</h4>
+<p>Android has published a Native Development Kit (NDK) for the development of apps. Unfortunately we currently do not 
+permit apps to be developed in this technology.</p>
+
+<h4 id="usb-connectivity">USB Connectivity</h4>
+<p>USB Host Mode is supported. Therefore, apps can, for example, read USB Flash disks, assuming that the appropriate 
+connectors are obtained. However, this is only available to Payment Relevant apps (see the Type Enforcement section 
+above). Furthermore, when a USB Device is installed, unlike stock </p>
+
+<p>Android, Albert does not display a prompt requesting the user’s permission to connect to the USB device.</p>
+
+<h4 id="developer-mode">Developer Mode</h4>
+<p>Android Developer Mode is not available on Albert. These have been explicitly disabled and removed as part of the 
+Hardening process.</p>
+
+<h4 id="webview-widget">WebView Widget</h4>
+<p>The WebView Widget is available and accessible on Albert. However, access to external sites will be governed by the 
+Network permissions granted by your app label under the <a href="#type-enforcement">Type Enforcement</a> rules described above.</p>
+
+<p>Due to a vulnerability identified in Android 4.0, the WebView component has been patched and all functions exposed to JavaScript must include the <code>JavascriptInterface</code> annotation.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> This annotation is only supported from Android API Level 17.
+Therefore, you are required to ensure that your compilation settings are set accordingly and that you have the corresponding build tools installed within your environment.</p>
+</blockquote>
+
+<h4 id="adobe-flash">Adobe Flash</h4>
+<p>The Adobe Flash Player is not supported on Albert. It is suggested that as an alternative, Developers consider using 
+HTML5, CSS3 and JavaScript. Please refer to the ‘ToTheMovies’ Sample App for an example of this.</p>
+
+<h4 id="no-hardware-gpu-acceleration">No Hardware GPU Acceleration</h4>
+<p>By default Android uses hardware acceleration to render 2D View’s using the GPU.
+This feature is not available on the Albert or the AEVI Emulator.
+To get similar performance on your development tablet you can turn off the hardware acceleration
+for your entire application by adding the following to the <code>&lt;application&gt;</code> tag in the Manifest file.</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;application</span> <span class="na">android:hardwareAccelerated=</span><span class="s">&quot;false&quot;</span> <span class="nt">&gt;</span></code></pre></div>
+
+<h2 id="policy-restrictions">Policy Restrictions</h2>
+
+<p>App developers need to be aware that there are other restrictions to the platform that are not applied systemically but 
+are applied as part of the app review process. The full list can be found on the Developer Portal.</p>
+
+<h4 id="access-to-google-services">Access to Google Services</h4>
+<p>Access to Google Services such as Google Play (all services), Google Cloud Messaging and the Google Maps Android API are 
+not supported. This is an area we are actively addressing. Please watch this space for further developments.  </p>
+
+<h4 id="special-purpose-apps">Special Purpose apps</h4>
+<p>As a general policy, special purpose apps such as launchers, task managers, battery management apps, flashlights, memory 
+cleaners etc. will not be accepted. Please see the Developer Portal for more information.</p>
+
+<h4 id="web-based-apps">Web Based Apps</h4>
+<p>Whilst it is possible to write a Web based (HTML5, CSS3 &amp; JavaScript) App, some Acquirers and Retailers may 
+not allow these types of Apps on their platform for security reasons. Please check with your Acquirer / Retailer.</p>
+
+<h4 id="app-experience">App Experience</h4>
+<p>Maintaining a positive experience in the usage of the Platform is a key criteria. The app review process will undertake
+an extensive review of the app to assess security vulnerabilities, performance and reliability. Apps that fail these tests
+an extensive review of the app to assess security vulnerabilities, performance and reliability. Apps that fail these tests
+are likely to be rejected. Please see the Developer Portal for more information.</p>
+
+<h4 id="interference-with-albert-or-other-apps">Interference with Albert or Other apps</h4>
+<p>Apps that interfere or affect the normal operation of other apps or Albert, including those that reserve excessive 
+amounts of resources (e.g. memory &amp; processor) are likely to be rejected. Please see the Developer Portal for more 
+information.</p>
+
+<h4 id="impersonation-of-system-or-payment-uis">Impersonation of System or Payment UIs</h4>
+<p>Apps may not impersonate system or payment related user interfaces. Please see the Developer Portal for more information.</p>
+
+<h4 id="script-engines-and-dynamic-code">Script Engines and Dynamic Code</h4>
+<p>Apps that include script engines or those that dynamically download of executable code via the Network are prohibited. 
+Please see the Developer Portal for more information.</p>
+
+<h4 id="data-capture--storage">Data Capture &amp; Storage</h4>
+<p>Apps must consider the impact of legislation on the data that is captured by their apps. This includes legislation 
+around the capture and processing of personal data and financial data.</p>
+
+<p>Please see the Developer Portal for more information.</p>
+
+<h4 id="exposing-apis-from-your-app">Exposing APIs from your app</h4>
+<p>Apps must not expose any app programming interfaces of their own. Should you specifically require this type capability, 
+you are advised get in contact via the Developer Portal.</p>
+
+<h2 id="electronic-cash-register-integration">Electronic Cash Register Integration</h2>
+
+<p>We recognise that there will be a requirement to integrate Albert with Point of Sale Systems. There is a roadmap to 
+support a number of the Electronic Cash Register (ECR) Standards including PC-EFTPOS, Global Blue and OPI. An API is 
+available for this, however, it is a privileged API that is not be available as part of the AEVI SDK. Please get in
+contact via the Developer Portal for further information.</p>
+
+        </div>        
+    </div>
+    </div>
+
+    <footer class="footer with-menu">
+        <div class="controls">
+            <div class="row">
+                <div class="social col-md-4">
+                    <ul class="nav nav-pills">
+                        <li><a href="https://www.facebook.com/wincornixdorf.de" target="_blank"> <i class="fa fa-2x fa-facebook-square"></i></a></li>
+                        <li><a href="https://twitter.com/wincornixdorf" target="_blank"> <i class="fa fa-2x fa-twitter-square"></i></a></li>
+                        <li><a href="https://plus.google.com/102902303639129288885" target="_blank"> <i class="fa fa-2x fa-google-plus-square"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/wincor-nixdorf" target="_blank"> <i class="fa fa-2x fa-linkedin-square"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copy col-md-8">
+                    <h5>AEVI by Wincor-Nixdorf</h5>
+                    <p>Copyright &copy; 2015. All rights reserved</p>
+                    <p><a href="http://www.wincor-nixdorf.com/">http://www.wincor-nixdorf.com/</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="logo"><img src="../assets/img/wincor-logo.png" alt="Wincor Nixdorf Logo" /></div>
+    </footer>
+</div>
+
+
+<script type="text/javascript" src="../assets/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="../assets/js/site.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</body>
+</html>

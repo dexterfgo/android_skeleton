@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AEVI SDK documentation v2.3.0</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="../assets/css/aevi.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/docs.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/glyphicons.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body class="url_reference_permissions_and_manifest categories_reference layout_default">
+
+<div id="main" class="layout">
+
+    <header class="header with-menu">
+        <div class="menu-toggle">
+            <button class="btn btn-default btn-sm"><i class="fa fa-lg fa-bars"></i></button>
+        </div>
+        <div class="brand"><a href="../index.html"><img src="../assets/img/logo.jpg" alt="Site Logo"></a></div>
+        <div class="controls right">
+            <div class="advert">Support? Email <a href="mailto:aevi.sdk@wincor-nixdorf.com" class="advert">support@aevi.com</a></div>
+            <div class="user"></div>
+        </div>
+    </header>
+
+    <div class="clearfix">
+    <div class="sidebar closed">
+    <nav>
+        <ul class="nav">
+            <li>
+                <a href="../index.html"><i class="fa fa-lg fa-book"></i> SDK Documentation</a>
+            </li>
+            
+            <li>
+                <a href="../introduction/index.html"><i class="fa fa-lg fa-bookmark"></i> Introduction</a>
+                
+        </li>
+        <li>
+            <a href="../guides/index.html"><i class="fa fa-lg fa-bookmark"></i> Guides</a>
+            
+        </li>
+        <li>
+            <a href="../reference/index.html"><i class="fa fa-lg fa-coffee"></i> Reference</a>
+            
+            <ul class="nav">
+                
+                
+        
+                
+        
+                
+        
+                
+                
+        
+        
+                
+                
+                <li><a href="../reference/javadocs.html">Javadocs</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../reference/device-specifications.html">Device Specification</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../reference/aevi-eula.html">Terms of Use</a></li>
+        
+        
+        
+                
+                
+                <li><a href="../reference/release-notes.html">Release Notes</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+                
+                <li class="active"><a href="../reference/permissions-and-manifest.html">Permissions and Manifest</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../reference/transaction-results.html">Transaction Results</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../reference/support.html">Getting Support</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+        </ul>
+        
+        </li>
+        </ul>
+    </nav>
+</div>
+
+    <div class="content with-menu" role="main">
+        <ol class="breadcrumb">
+            <li><a href="#">AEVI SDK v2.3.0</a></li>
+        </ol>
+        <div role="content">
+            <h1>Permissions and Manifest changes</h1>
+            <div class="panel panel-default quickindex"><div class="panel-heading">Quick Index</div>
+<ul class="nav"><li><a href="#permissions">Permissions</a></li><li><a href="#type-enforcement">Type Enforcement</a></li><li><a href="#network-access">Network access</a></li><li><a href="#supported-android-permissions">Supported Android Permissions</a></li></ul></div>
+<p>The platform is a privilege-separated environment, in which each app runs with a distinct system
+identity and app group. Finer grained features are provided through a <em>permission</em> mechanism that
+enforces restrictions on the specific operations that a particular process can perform. This chapter comprises
+the following sections:</p>
+
+<h2 id="permissions">Permissions</h2>
+
+<p>By default, a basic app has no permissions associated with it, therefore it cannot adversely impact 
+the user experience or any data on Albert. To make use of protected features of Albert, include 
+in the <em>AndroidManifest.xml</em> one or more <code>&lt;uses-permission&gt;</code> tags declaring the permissions that your app needs.</p>
+
+<p>The following permissions are available:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Permission</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>com.aevi.permission.CONFIGURATION</td>
+      <td>Allows apps to obtain configiration data from the Device and Payment App</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.PAYMENT_REQUEST</td>
+      <td>Allows apps to send Payment Requests</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.REFUND_REQUEST</td>
+      <td>Allows apps to send Refund Requests</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.DEPOSIT_REQUEST</td>
+      <td>Allows apps to send Deposit Requests</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.TOKEN_REQUEST</td>
+      <td>Allows apps to send Token Requests for recurring payments</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.MOTO_PAYMENT_REQUEST</td>
+      <td>Allows apps to send Mail Order / Telephone Order Payment Requests</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.MOTO_REFUND_REQUEST</td>
+      <td>Allows apps to send Mail Order / Telephone Order Refund Requests</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.REVERSAL_REQUEST</td>
+      <td>Allows apps to Revert the last transaction</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.PRE_AUTHORISATION_REQUEST</td>
+      <td>Allows apps to send Pre-authorisation Requests</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.COMPLETION_REQUEST</td>
+      <td>Allows apps to send Completion Requests</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.PRINT_SERVICE</td>
+      <td>Required to be able to print receipts and other tickets</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.CRASH_LOG_SERVICE</td>
+      <td>Required to be able to send crash log to the Terminal Management System</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.CARD_TYPE</td>
+      <td>Required to be able to access card types and card entry types</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.AUTHENTICATION_REQUEST</td>
+      <td>Allows apps to send User Authentication Requests the Platform</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.SYSTEM_BAR_SERVICE</td>
+      <td>Allows apps to hide or show navigation button in the menu bar</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.TRANSACTION_LOG_SERVICE</td>
+      <td>Allows apps to append entries to the transaction log</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.SHARED_PREFERENCES_SERVICE</td>
+      <td>Allows apps to access shared preferences</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.SMART_CARD_SERVICE</td>
+      <td>Allows apps to access the Smart Card reader</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.MAG_STRIPE_SERVICE</td>
+      <td>Allows apps to access the Magstripe reader</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.MAIL_SERVICE</td>
+      <td>Allows apps to send e-mail using the Mail Service</td>
+    </tr>
+    <tr>
+      <td>com.aevi.permission.LED_SERVICE</td>
+      <td>Allows apps to control the indication LED</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>During the app installation process, the requested permissions are inspected and granted.</p>
+
+<h3 id="example-manifest">Example manifest</h3>
+
+<p>The following app requests permission to access the payment app and send a payment request.</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">package=</span><span class="s">&quot;com.mycompany.app.myapp&quot;</span> <span class="nt">&gt;</span>
+    <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;com.aevi.permission.CONFIGURATION&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;com.aevi.permission.PAYMENT_REQUEST&quot;</span> <span class="nt">/&gt;</span>
+    ...
+<span class="nt">&lt;/manifest&gt;</span></code></pre></div>
+
+<h2 id="type-enforcement">Type Enforcement</h2>
+
+<p>The Type Enforcement system imposes a mandatory and strict separation of system processes according to 
+least privilege. In addition, the system applies strict separation of apps from the Firmware. The solution 
+is based on SELinux and SEAndroid.</p>
+
+<p>Type Enforcement has also been extended to impose separation between different types of Apps. For app developers, 
+the following types of app are available:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Application Type</th>
+      <th>Description</th>
+      <th>Manifest Setting</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Network</td>
+      <td>Apps that do not need to use the AEVI SDK APIs</td>
+      <td>vaa_network</td>
+    </tr>
+    <tr>
+      <td>Merchant</td>
+      <td>Apps that require access to any of the AEVI SDK Services</td>
+      <td>vaa_merchant</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>To indicate the group type to which an app belongs, an <code>&lt;application-type&gt;</code> tag must be included in 
+the <em>AndroidManifest.xml</em> file. The structure of the entry is as follows:</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;application-type&quot;</span> <span class="na">android:value=</span><span class="s">[&quot;vaa_network&quot;|&quot;vaa_merchant&quot;]</span> <span class="nt">/&gt;</span></code></pre></div>
+
+<p>For more details on Type Enforcement, please read the
+<a href="../introduction/platform-hardening.html">Platform Hardening &amp; Restrictions</a> chapter.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Apps that do not have an<code>application-type</code> tag will not run. And only those apps of type <code>vaa_merchant</code> will have access to AEVI SDK API.</p>
+</blockquote>
+
+<h3 id="example-manifest-1">Example manifest</h3>
+
+<p>The following app requests permission to access the Payment app.</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">package=</span><span class="s">&quot;com.mycompany.app.myapp&quot;</span> <span class="nt">&gt;</span>
+    ...
+    <span class="nt">&lt;/application&gt;</span>
+    <span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;application-type&quot;</span> <span class="na">android:value=</span><span class="s">&quot;vaa_merchant&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/manifest&gt;</span></code></pre></div>
+
+<h2 id="network-access">Network access</h2>
+
+<p>For standard Android, basic networking policy is controlled by the permissions in the application manifest, there are two network access levels defined by Android:</p>
+
+<ol>
+  <li>Apps that have the internet permission defined have full access to the network</li>
+  <li>Apps that do not have the internet permission have no network access</li>
+</ol>
+
+<p>In addition, Albert’s Trusted Communications Manager (TCM) uses <strong>iptables</strong> to implement a System-Wide enforcement of the network security policy. 
+Therefore Apps that require network access must also declare the endpoints to which they connect within the Android Manifest. 
+During App installation, these rules are extracted and the iptables are updated. </p>
+
+<blockquote>
+  <p>Network connections for apps are made using the normal Android HTTP APIs. For Albert, these behave in the same way and throw the same exceptions as on standard Android.</p>
+</blockquote>
+
+<h3 id="configuring-the-androidmanifestxml-file">Configuring the AndroidManifest.xml file</h3>
+
+<p>The ip-addresses section of the AndroidManifest.xml is structured as follows:</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;ip-addresses&quot;</span> <span class="na">android:value=</span><span class="s">&quot;string&quot;</span> <span class="nt">/&gt;</span></code></pre></div>
+
+<p>The content in the <em>string</em> is defined as follows:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">&lt;IP address&gt; or &lt;host name&gt;</code></pre></div>
+
+<p>The <code>&lt;IP address&gt;</code> entry may refer to the destination IP address or IP address range that should be whitelisted for the specified application. 
+It is possible to use IP address ranges for the <code>&lt;IP address&gt;</code> entry of the form</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">192.168.1.0/24 results in an IP address range from 192.168.1.1 to 192.168.1.255 
+10.0.0.0/8 results in an IP address range from 10.0.0.1 to 10.255.255.255
+10.0.0.1,10.0.0.3 results in an IP address range from 10.0.0.1 and 10.0.0.3
+10.0.1.15-10.0.2.5 results in an IP address range from 10.0.1.15 to 10.0.2.5</code></pre></div>
+
+<p>An IP address range is limited to 255 continuous addresses. An incorrectly specified IP-Address range will be 
+ignored resulting in no connectivity. It is possible to combine ranges and single IP addresses. These are 
+separated by commas as in the following example:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">192.168.1.0/24,192.168.2.10-192.168.2.90,192.168.3.7</code></pre></div>
+
+<p>The following wildcard can be used if no restrictions are desired for a specific app.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">0.0.0.0/0</code></pre></div>
+
+<p>As an example, the manifest file would be configured for full Internet access in the following manner:</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;ip-addresses&quot;</span> <span class="na">android:value=</span><span class="s">&quot;0.0.0.0/0&quot;</span> <span class="nt">/&gt;</span></code></pre></div>
+
+<blockquote>
+  <p><strong>Note:</strong> Wildcard settings will require Bank approval.</p>
+</blockquote>
+
+<h3 id="lan-communication">LAN Communication</h3>
+
+<p>For LAN communication, the <code>ip-addresses</code> entry may be configured with the specific whitelist string, ‘local’.
+The manifest file should be configured as follows:</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;ip-addresses&quot;</span> <span class="na">android:value=</span><span class="s">&quot;local&quot;</span> <span class="nt">/&gt;</span></code></pre></div>
+
+<blockquote>
+  <p><strong>Note:</strong> IPv6 is currently not supported.</p>
+</blockquote>
+
+<h3 id="declaring-multiple-discrete-endpoints-and-the-gradle-build-tool">Declaring multiple discrete endpoints and the Gradle build tool</h3>
+
+<p>It is possible to declare multiple discrete endpoints by declaring multiple <code>meta-data</code> tags. However, if the Gradle build tool is used,
+it is likely that you will get errors during the build process. In this scenario, you are required to add a suffix to the <code>ip-addresses</code> attribute as per the following example:</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;ip-addresses01&quot;</span> <span class="na">android:value=</span><span class="s">&quot;api.example.com&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;ip-addresses02&quot;</span> <span class="na">android:value=</span><span class="s">&quot;cdn.example.com&quot;</span> <span class="nt">/&gt;</span></code></pre></div>
+
+<h2 id="supported-android-permissions">Supported Android Permissions</h2>
+
+<p>Albert continues to support all standard Android Permissions. However, some Permissions have no effect 
+under the Type Enforcement Rules applied for Albert. The Table below lists these permissions and their 
+applicability for the two Application types.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Permission</th>
+      <th>Description</th>
+      <th style="text-align: center">vaa_network</th>
+      <th style="text-align: center">vaa_merchant</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ACCESS_CHECKIN_PROPERTIES</td>
+      <td>Allows read/write access to the ‘properties’ table in the checkin database to change values that get uploaded.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>ACCESS_COARSE_LOCATION</td>
+      <td>Allows an app to access approximate location derived from network location sources such as cell towers and Wi-Fi.</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>ACCESS_FINE_LOCATION</td>
+      <td>Allows an app to access precise location from location sources such as GPS cell towers and Wi-Fi.</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>ACCESS_LOCATION_EXTRA_COMMANDS</td>
+      <td>Allows an app to access extra location provider commands</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>ACCESS_MOCK_LOCATION</td>
+      <td>Allows an app to create mock location providers for testing</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>ACCESS_NETWORK_STATE</td>
+      <td>Allows apps to access information about networks</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>ACCESS_SURFACE_FLINGER</td>
+      <td>Allows an app to use SurfaceFlinger’s low level features</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>ACCESS_WIFI_STATE</td>
+      <td>Allows apps to access information about Wi-Fi networks</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>ACCOUNT_MANAGER</td>
+      <td>Allows apps to call into AccountAuthenticators.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>ADD_VOICEMAIL</td>
+      <td>Allows an app to add voicemails into the system.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>AUTHENTICATE_ACCOUNTS</td>
+      <td>Allows an app to act as an AccountAuthenticator for the AccountManager</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>BATTERY_STATS</td>
+      <td>Allows an app to collect battery statistics</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>BIND_ACCESSIBILITY_SERVICE</td>
+      <td>Must be required by an AccessibilityService to ensure that only the system can bind to it.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>BIND_APPWIDGET</td>
+      <td>Allows an app to tell the AppWidget service which app can access AppWidget’s data.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>BIND_DEVICE_ADMIN</td>
+      <td>Must be required by device administration receiver to ensure that only the system can interact with it.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>BIND_INPUT_METHOD</td>
+      <td>Must be required by an InputMethodService to ensure that only the system can bind to it.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>BIND_REMOTEVIEWS</td>
+      <td>Must be required by a RemoteViewsService to ensure that only the system can bind to it.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>BIND_TEXT_SERVICE</td>
+      <td>Must be required by a TextService (e.g. SpellCheckerService) to ensure that only the system can bind to it.</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>BIND_VPN_SERVICE</td>
+      <td>Must be required by a VpnService to ensure that only the system can bind to it.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>BIND_WALLPAPER</td>
+      <td>Must be required by a WallpaperService to ensure that only the system can bind to it.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>BLUETOOTH</td>
+      <td>Allows apps to connect to paired bluetooth devices</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>BLUETOOTH_ADMIN</td>
+      <td>Allows apps to discover and pair bluetooth devices</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>BRICK</td>
+      <td>Required to be able to disable Albert (very dangerous!).</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>BROADCAST_PACKAGE_REMOVED</td>
+      <td>Allows an app to broadcast a notification that an app package has been removed.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>BROADCAST_SMS</td>
+      <td>Allows an app to broadcast an SMS receipt notification</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>BROADCAST_STICKY</td>
+      <td>Allows an app to broadcast sticky intents.</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>BROADCAST_WAP_PUSH</td>
+      <td>Allows an app to broadcast a WAP PUSH receipt notification</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>CALL_PHONE</td>
+      <td>Allows an app to initiate a phone call without going through the dialer user interface for the user to confirm the call being placed.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>CALL_PRIVILEGED</td>
+      <td>Allows an app to call any phone number including emergency numbers without going through the dialer user interface for the user to confirm the call being placed.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>CAMERA</td>
+      <td>Required to be able to access the camera device.</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>CHANGE_COMPONENT_ENABLED_STATE</td>
+      <td>Allows an app to change whether an app component (other than its own) is enabled or not.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>CHANGE_CONFIGURATION</td>
+      <td>Allows an app to modify the current configuration such as locale.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>CHANGE_NETWORK_STATE</td>
+      <td>Allows apps to change network connectivity state</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>CHANGE_WIFI_MULTICAST_STATE</td>
+      <td>Allows apps to enter Wi-Fi multicast mode</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>CHANGE_WIFI_STATE</td>
+      <td>Allows apps to change Wi-Fi connectivity state</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>CLEAR_APP_CACHE</td>
+      <td>Allows an app to clear the caches of all installed apps on the device.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>CLEAR_APP_USER_DATA</td>
+      <td>Allows an app to clear user data</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>CONTROL_LOCATION_UPDATES</td>
+      <td>Allows enabling/disabling location update notifications from the radio.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>DELETE_CACHE_FILES</td>
+      <td>Allows an app to delete cache files.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>DELETE_PACKAGES</td>
+      <td>Allows an app to delete packages.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>DEVICE_POWER</td>
+      <td>Allows low-level access to power management</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>DIAGNOSTIC</td>
+      <td>Allows apps to RW to diagnostic resources.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>DISABLE_KEYGUARD</td>
+      <td>Allows apps to disable the keyguard</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>DUMP</td>
+      <td>Allows an app to retrieve state dump information from system services.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>EXPAND_STATUS_BAR</td>
+      <td>Allows an app to expand or collapse the status bar.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>FACTORY_TEST</td>
+      <td>Run as a manufacturer test app running as the root user.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>FLASHLIGHT</td>
+      <td>Allows access to the flashlight</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>FORCE_BACK</td>
+      <td>Allows an app to force a BACK operation on whatever is the top activity.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>GET_ACCOUNTS</td>
+      <td>Allows access to the list of accounts in the accounts service</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>GET_PACKAGE_SIZE</td>
+      <td>Allows an app to find out the space used by any package.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>GET_TASKS</td>
+      <td>Allows an app to get information about the currently or recently running tasks.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>GLOBAL_SEARCH</td>
+      <td>This permission can be used on content providers to allow the global search system to access their data.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>HARDWARE_TEST</td>
+      <td>Allows access to hardware peripherals.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>INJECT_EVENTS</td>
+      <td>Allows an app to inject user events (keys touch trackball) into the event stream and deliver them to ANY window.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>INSTALL_LOCATION_PROVIDER</td>
+      <td>Allows an app to install a location provider into the Location Manager</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>INSTALL_PACKAGES</td>
+      <td>Allows an app to install packages.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>INTERNAL_SYSTEM_WINDOW</td>
+      <td>Allows an app to open windows that are for use by parts of the system user interface.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>INTERNET</td>
+      <td>Allows apps to open network sockets.</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>KILL_BACKGROUND_PROCESSES</td>
+      <td>Allows an app to call killBackgroundProcesses(String).</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>MANAGE_ACCOUNTS</td>
+      <td>Allows an app to manage the list of accounts in the AccountManager</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>MANAGE_APP_TOKENS</td>
+      <td>Allows an app to manage (create destroy Z-order) app tokens in the window manager.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>MASTER_CLEAR</td>
+      <td>Not for use by third-party applications.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>MODIFY_AUDIO_SETTINGS</td>
+      <td>Allows an app to modify global audio settings</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>MODIFY_PHONE_STATE</td>
+      <td>Allows modification of the telephony state - power on mmi etc.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>MOUNT_FORMAT_FILESYSTEMS</td>
+      <td>Allows formatting file systems for removable storage.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>MOUNT_UNMOUNT_FILESYSTEMS</td>
+      <td>Allows mounting and unmounting file systems for removable storage.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>NFC</td>
+      <td>Allows app to perform I/O operations over NFC</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>PERSISTENT_ACTIVITY</td>
+      <td>This constant was deprecated in API level 9. This functionality will be removed in the future; please do not use. Allow an app to make its activities persistent.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>PROCESS_OUTGOING_CALLS</td>
+      <td>Allows an app to monitor modify or abort outgoing calls.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>READ_CALENDAR</td>
+      <td>Allows an app to read the user’s calendar data.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>READ_CALL_LOG</td>
+      <td>Allows an app to read the user’s call log.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>READ_CONTACTS</td>
+      <td>Allows an app to read the user’s contacts data.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>READ_EXTERNAL_STORAGE</td>
+      <td>Allows an app to read from external storage.</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>READ_FRAME_BUFFER</td>
+      <td>Allows an app to take screen shots and more generally get access to the frame buffer data</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>READ_HISTORY_BOOKMARKS</td>
+      <td>Allows an app to read (but not write) the user’s browsing history and bookmarks.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>READ_INPUT_STATE</td>
+      <td>This constant was deprecated in API level 16. The API that used this permission has been removed.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>READ_LOGS</td>
+      <td>Allows an app to read the low-level system log files.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>READ_PHONE_STATE</td>
+      <td>Allows read only access to phone state.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>READ_PROFILE</td>
+      <td>Allows an app to read the user’s personal profile data.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>READ_SMS</td>
+      <td>Allows an app to read SMS messages.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>READ_SOCIAL_STREAM</td>
+      <td>Allows an app to read from the user’s social stream.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>READ_SYNC_SETTINGS</td>
+      <td>Allows apps to read the sync settings</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>READ_SYNC_STATS</td>
+      <td>Allows apps to read the sync stats</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>READ_USER_DICTIONARY</td>
+      <td>Allows an app to read the user dictionary.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>REBOOT</td>
+      <td>Required to be able to reboot the device.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>RECEIVE_BOOT_COMPLETED</td>
+      <td>Allows an app to receive the ACTION_BOOT_COMPLETED that is broadcast after the system finishes booting.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>RECEIVE_MMS</td>
+      <td>Allows an app to monitor incoming MMS messages to record or perform processing on them.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>RECEIVE_SMS</td>
+      <td>Allows an app to monitor incoming SMS messages to record or perform processing on them.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>RECEIVE_WAP_PUSH</td>
+      <td>Allows an app to monitor incoming WAP push messages.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>RECORD_AUDIO</td>
+      <td>Allows an app to record audio</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>REORDER_TASKS</td>
+      <td>Allows an app to change the Z-order of tasks</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>RESTART_PACKAGES</td>
+      <td>This constant was deprecated in API level 8. The restartPackage(String) API is no longer supported.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>SEND_SMS</td>
+      <td>Allows an app to send SMS messages.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>SET_ACTIVITY_WATCHER</td>
+      <td>Allows an app to watch and control how activities are started globally in the system.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>SET_ALARM</td>
+      <td>Allows an app to broadcast an Intent to set an alarm for the user.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>SET_ALWAYS_FINISH</td>
+      <td>Allows an app to control whether activities are immediately finished when put in the background.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>SET_ANIMATION_SCALE</td>
+      <td>Modify the global animation scaling factor.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>SET_DEBUG_APP</td>
+      <td>Configure an app for debugging.</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>SET_ORIENTATION</td>
+      <td>Allows low-level access to setting the orientation (actually rotation) of the screen.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>SET_POINTER_SPEED</td>
+      <td>Allows low-level access to setting the pointer speed.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>SET_PREFERRED_APPLICATIONS</td>
+      <td>This constant was deprecated in API level 7. No longer useful see addPackageToPreferred(String) for details.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>SET_PROCESS_LIMIT</td>
+      <td>Allows an app to set the maximum number of (not needed) app processes that can be running.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>SET_TIME</td>
+      <td>Allows apps to set the system time</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>SET_TIME_ZONE</td>
+      <td>Allows apps to set the system time zone</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>SET_WALLPAPER</td>
+      <td>Allows apps to set the wallpaper</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>SET_WALLPAPER_HINTS</td>
+      <td>Allows apps to set the wallpaper hints</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>SIGNAL_PERSISTENT_PROCESSES</td>
+      <td>Allow an app to request that a signal be sent to all persistent processes</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>STATUS_BAR</td>
+      <td>Allows an app to open close or disable the status bar and its icons.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>SUBSCRIBED_FEEDS_READ</td>
+      <td>Allows an app to allow access the subscribed feeds ContentProvider.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>SUBSCRIBED_FEEDS_WRITE</td>
+      <td> </td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>SYSTEM_ALERT_WINDOW</td>
+      <td>Allows an app to open windows using the type TYPE_SYSTEM_ALERT shown on top of all other apps.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>UPDATE_DEVICE_STATS</td>
+      <td>Allows an app to update device statistics.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>USE_CREDENTIALS</td>
+      <td>Allows an app to request authtokens from the AccountManager</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>USE_SIP</td>
+      <td>Allows an app to use SIP service</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>VIBRATE</td>
+      <td>Allows access to the vibrator</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>WAKE_LOCK</td>
+      <td>Allows using PowerManager WakeLocks to keep processor from sleeping or screen from dimming</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>WRITE_APN_SETTINGS</td>
+      <td>Allows apps to write the apn settings</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>WRITE_CALENDAR</td>
+      <td>Allows an app to write (but not read) the user’s calendar data.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>WRITE_CALL_LOG</td>
+      <td>Allows an app to write (but not read) the user’s contacts data.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>WRITE_CONTACTS</td>
+      <td>Allows an app to write (but not read) the user’s contacts data.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>WRITE_EXTERNAL_STORAGE</td>
+      <td>Allows an app to write to external storage.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>WRITE_GSERVICES</td>
+      <td>Allows an app to modify the Google service map.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>WRITE_HISTORY_BOOKMARKS</td>
+      <td>Allows an app to write (but not read) the user’s browsing history and bookmarks.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>WRITE_PROFILE</td>
+      <td>Allows an app to write (but not read) the user’s personal profile data.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>WRITE_SECURE_SETTINGS</td>
+      <td>Allows an app to read or write the secure system settings.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>WRITE_SETTINGS</td>
+      <td>Allows an app to read or write the system settings.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>WRITE_SMS</td>
+      <td>Allows an app to write SMS messages.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>WRITE_SOCIAL_STREAM</td>
+      <td>Allows an app to write (but not read) the user’s social stream data.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>WRITE_SYNC_SETTINGS</td>
+      <td>Allows apps to write the sync settings</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>WRITE_USER_DICTIONARY</td>
+      <td>Allows an app to write to the user dictionary.</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+  </tbody>
+</table>
+
+        </div>        
+    </div>
+    </div>
+
+    <footer class="footer with-menu">
+        <div class="controls">
+            <div class="row">
+                <div class="social col-md-4">
+                    <ul class="nav nav-pills">
+                        <li><a href="https://www.facebook.com/wincornixdorf.de" target="_blank"> <i class="fa fa-2x fa-facebook-square"></i></a></li>
+                        <li><a href="https://twitter.com/wincornixdorf" target="_blank"> <i class="fa fa-2x fa-twitter-square"></i></a></li>
+                        <li><a href="https://plus.google.com/102902303639129288885" target="_blank"> <i class="fa fa-2x fa-google-plus-square"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/wincor-nixdorf" target="_blank"> <i class="fa fa-2x fa-linkedin-square"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copy col-md-8">
+                    <h5>AEVI by Wincor-Nixdorf</h5>
+                    <p>Copyright &copy; 2015. All rights reserved</p>
+                    <p><a href="http://www.wincor-nixdorf.com/">http://www.wincor-nixdorf.com/</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="logo"><img src="../assets/img/wincor-logo.png" alt="Wincor Nixdorf Logo" /></div>
+    </footer>
+</div>
+
+
+<script type="text/javascript" src="../assets/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="../assets/js/site.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</body>
+</html>

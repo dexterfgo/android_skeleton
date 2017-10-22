@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AEVI SDK documentation v2.3.0</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="../assets/css/aevi.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/docs.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/glyphicons.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body class="url_introduction_api_compatibility categories_introduction layout_default">
+
+<div id="main" class="layout">
+
+    <header class="header with-menu">
+        <div class="menu-toggle">
+            <button class="btn btn-default btn-sm"><i class="fa fa-lg fa-bars"></i></button>
+        </div>
+        <div class="brand"><a href="../index.html"><img src="../assets/img/logo.jpg" alt="Site Logo"></a></div>
+        <div class="controls right">
+            <div class="advert">Support? Email <a href="mailto:aevi.sdk@wincor-nixdorf.com" class="advert">support@aevi.com</a></div>
+            <div class="user"></div>
+        </div>
+    </header>
+
+    <div class="clearfix">
+    <div class="sidebar closed">
+    <nav>
+        <ul class="nav">
+            <li>
+                <a href="../index.html"><i class="fa fa-lg fa-book"></i> SDK Documentation</a>
+            </li>
+            
+            <li>
+                <a href="../introduction/index.html"><i class="fa fa-lg fa-bookmark"></i> Introduction</a>
+                
+                <ul class="nav">
+                    
+                    
+                    
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/albert-intro.html">Albert Introduction</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sdk-intro.html">AEVI SDK Introduction</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/whats-new-2.html">What's new in SDK 2.x.x</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sdk-install.html">Installation Guide</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sample-apps.html">Sample Applications</a></li>
+            
+            
+            
+                    
+            
+                    
+                    
+                    <li class="active"><a href="../introduction/api-compatibility.html">API Compatibility</a></li>
+            
+            
+            
+                    
+                    
+                    <li><a href="../introduction/dev-lifecycle.html">App Development Lifecycle</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/platform-hardening.html">Platform Hardening</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/aevi-emulator.html">AEVI Emulator</a></li>
+            
+            
+            
+                    
+                    
+                    <li><a href="../introduction/albert-developer-device.html">Developer Device</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+        </ul>
+        
+        </li>
+        <li>
+            <a href="../guides/index.html"><i class="fa fa-lg fa-bookmark"></i> Guides</a>
+            
+        </li>
+        <li>
+            <a href="../reference/index.html"><i class="fa fa-lg fa-coffee"></i> Reference</a>
+            
+        </li>
+        </ul>
+    </nav>
+</div>
+
+    <div class="content with-menu" role="main">
+        <ol class="breadcrumb">
+            <li><a href="#">AEVI SDK v2.3.0</a></li>
+        </ol>
+        <div role="content">
+            <h1>API Compatibility</h1>
+            <p>The APIs provided with the AEVI SDK are designed to be ‘vendor independent’. As an example, this
+ensures that an app written for one bank also runs on a device supplied by other banks. 
+This design philosophy can result in some APIs being either unique to, or alternatively,
+unsupported for specific platforms.</p>
+
+<h2 id="api-compatibility-table">API Compatibility table</h2>
+
+<p>The following table lists the compatibility between the different implementations of the AEVI SDK APIs.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>API</th>
+      <th>feature</th>
+      <th style="text-align: center">AEVI Simulators</th>
+      <th style="text-align: center">CBA / Albert</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Payment API</td>
+      <td>Payment request</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Refund request</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>MOTO request</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>MOTO refund request</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Deposit</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Token request</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Reversal</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Pre-auth / completion</td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Multiple currencies<sup>*</sup></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Multiple merchants<sup>*</sup></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Email address for receipts<sup>*</sup></td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Combined receipt printing<sup>*</sup></td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Optional parameters<sup>*</sup></td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Integrated mode<sup>*</sup></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Card types (e.g. VISA, MasterCard)<sup>*</sup></td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Account types (e.g. cheque, savings)<sup>*</sup></td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Card entry type (e.g. magstripe card, chip card)<sup>*</sup></td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>Payment Configuration<sup>*</sup></td>
+      <td> </td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>Configuration<sup>*</sup></td>
+      <td> </td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>Printing</td>
+      <td> </td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>Smart card API</td>
+      <td> </td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td>Magstripe card API</td>
+      <td> </td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>LED API</td>
+      <td> </td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>Authentication</td>
+      <td> </td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>Email API</td>
+      <td> </td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>Crash log</td>
+      <td> </td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>Transaction log</td>
+      <td> </td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+    </tr>
+    <tr>
+      <td>Shared preferences</td>
+      <td> </td>
+      <td style="text-align: center"><i class="glyphicon glyphicon-ok"></i></td>
+      <td style="text-align: center">-</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Note:</strong> The starred items do not form part of the Compatibility related methods exposed by the TerminalConfiguration and PaymentAppConfiguration APIs.</p>
+</blockquote>
+
+        </div>        
+    </div>
+    </div>
+
+    <footer class="footer with-menu">
+        <div class="controls">
+            <div class="row">
+                <div class="social col-md-4">
+                    <ul class="nav nav-pills">
+                        <li><a href="https://www.facebook.com/wincornixdorf.de" target="_blank"> <i class="fa fa-2x fa-facebook-square"></i></a></li>
+                        <li><a href="https://twitter.com/wincornixdorf" target="_blank"> <i class="fa fa-2x fa-twitter-square"></i></a></li>
+                        <li><a href="https://plus.google.com/102902303639129288885" target="_blank"> <i class="fa fa-2x fa-google-plus-square"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/wincor-nixdorf" target="_blank"> <i class="fa fa-2x fa-linkedin-square"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copy col-md-8">
+                    <h5>AEVI by Wincor-Nixdorf</h5>
+                    <p>Copyright &copy; 2015. All rights reserved</p>
+                    <p><a href="http://www.wincor-nixdorf.com/">http://www.wincor-nixdorf.com/</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="logo"><img src="../assets/img/wincor-logo.png" alt="Wincor Nixdorf Logo" /></div>
+    </footer>
+</div>
+
+
+<script type="text/javascript" src="../assets/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="../assets/js/site.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</body>
+</html>

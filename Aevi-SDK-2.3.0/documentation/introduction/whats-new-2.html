@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AEVI SDK documentation v2.3.0</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="../assets/css/aevi.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/docs.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/glyphicons.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body class="url_introduction_whats_new_2 categories_introduction layout_default">
+
+<div id="main" class="layout">
+
+    <header class="header with-menu">
+        <div class="menu-toggle">
+            <button class="btn btn-default btn-sm"><i class="fa fa-lg fa-bars"></i></button>
+        </div>
+        <div class="brand"><a href="../index.html"><img src="../assets/img/logo.jpg" alt="Site Logo"></a></div>
+        <div class="controls right">
+            <div class="advert">Support? Email <a href="mailto:aevi.sdk@wincor-nixdorf.com" class="advert">support@aevi.com</a></div>
+            <div class="user"></div>
+        </div>
+    </header>
+
+    <div class="clearfix">
+    <div class="sidebar closed">
+    <nav>
+        <ul class="nav">
+            <li>
+                <a href="../index.html"><i class="fa fa-lg fa-book"></i> SDK Documentation</a>
+            </li>
+            
+            <li>
+                <a href="../introduction/index.html"><i class="fa fa-lg fa-bookmark"></i> Introduction</a>
+                
+                <ul class="nav">
+                    
+                    
+                    
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/albert-intro.html">Albert Introduction</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sdk-intro.html">AEVI SDK Introduction</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li class="active"><a href="../introduction/whats-new-2.html">What's new in SDK 2.x.x</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sdk-install.html">Installation Guide</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sample-apps.html">Sample Applications</a></li>
+            
+            
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/api-compatibility.html">API Compatibility</a></li>
+            
+            
+            
+                    
+                    
+                    <li><a href="../introduction/dev-lifecycle.html">App Development Lifecycle</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/platform-hardening.html">Platform Hardening</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/aevi-emulator.html">AEVI Emulator</a></li>
+            
+            
+            
+                    
+                    
+                    <li><a href="../introduction/albert-developer-device.html">Developer Device</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+        </ul>
+        
+        </li>
+        <li>
+            <a href="../guides/index.html"><i class="fa fa-lg fa-bookmark"></i> Guides</a>
+            
+        </li>
+        <li>
+            <a href="../reference/index.html"><i class="fa fa-lg fa-coffee"></i> Reference</a>
+            
+        </li>
+        </ul>
+    </nav>
+</div>
+
+    <div class="content with-menu" role="main">
+        <ol class="breadcrumb">
+            <li><a href="#">AEVI SDK v2.3.0</a></li>
+        </ol>
+        <div role="content">
+            <h1>What's new in SDK 2.x.x</h1>
+            <div class="panel panel-default quickindex"><div class="panel-heading">Quick Index</div>
+<ul class="nav"><li><a href="#type-enforcement">Type Enforcement</a></li><li><a href="#payment-application-sandbox-enhancements">Payment Application Sandbox Enhancements</a></li><li><a href="#removal-of-the-trusted-communications-manager">Removal of the Trusted Communications Manager</a></li><li><a href="#api-changes">API Changes</a></li><li><a href="#creation-of-separate-simulators-for-the-device-and-payment-app">Creation of Separate Simulators for the Device and Payment App</a></li><li><a href="#migration-checklist">Migration Checklist</a></li></ul></div>
+
+<p>SDK Release 2.0 is a significant release that supports major changes in Albert’s hardened Operating System platform and underlying security architecture.
+These changes have been introduced following extensive feedback from both our direct customers and the Developer Community.</p>
+
+<p>If you are already familiar with the AEVI SDK for Albert, this section will provide you with an overview of precisely what has changed.
+If you are new to the AEVI SDK, then you can skip the rest of this section.</p>
+
+<blockquote>
+  <p>Apps compiled using versions 1.x.x of the SDK are incompatible with the Albert running the new platform and all Albert’s will be migrated to this new platform.
+As a result, migration to SDK 2.x.x is mandatory for all Apps.
+The changes to the APIs are only minor and refactoring Apps should be reasonably quick and straightforward.</p>
+</blockquote>
+
+<h2 id="type-enforcement">Type Enforcement</h2>
+
+<p>The original Applications Types that were provided in the 1.x.x releases of the AEVI-SDK (payment, vaan and vaas) have been retired. The new Application types are:</p>
+
+<ul>
+  <li>vaa_merchant</li>
+  <li>vaa_network</li>
+</ul>
+
+<p>For further information on the features and capabilities of these new Application Types, please refer to <a href="../introduction/platform-hardening.html#type-enforcement">Type Enforcement</a> in the Platform Hardening, Customisations and Restrictions Section and <a href="../reference/permissions-and-manifest.html#type-enforcement">Type Enforcement</a> in the Permissions and Manifest Section.</p>
+
+<h2 id="payment-application-sandbox-enhancements">Payment Application Sandbox Enhancements</h2>
+
+<p>The Sandbox in which the Payment Application runs has been further enhanced and hardened.
+As a result, some of the APIs have had to change.
+Further information is provided in the API changes subsection below.</p>
+
+<h2 id="removal-of-the-trusted-communications-manager">Removal of the Trusted Communications Manager</h2>
+
+<p>The Trusted Communications Manager restrictions for Apps that require access to the Payment APIs have been removed.
+App developers are no longer required to use the transparent proxy provided by the TCM.
+Apps can use both secure and open protocols to access data and are free to use services that provide SHA-1 signed certificates.
+However, declaration of endpoints is still required in the AndroidManifest.xml.</p>
+
+<p>Further information is available in the <a href="../reference/permissions-and-manifest.html#network-access">Permissions and Manifest Section</a>  </p>
+
+<h2 id="api-changes">API Changes</h2>
+
+<p>A number of API changes have been implemented:</p>
+
+<ul>
+  <li>The PaymentConfiguration API is no longer supported. Users are required to use the PaymentAppConfiguration API instead. This exposes a similar set of methods but must be accessed via an Intent which replaces the original ContentProvider interface. Please review the <a href="../guides/configuration-api.html">Configuration &amp; Status</a> section for more details.</li>
+  <li>The PlatformCompatibility API has been removed. The methods have incorporated into the TerminalConfiguration and PaymentAppConfiguration APIs</li>
+  <li>The UriBuilder utility class has been removed as it is no longer required </li>
+</ul>
+
+<h2 id="creation-of-separate-simulators-for-the-device-and-payment-app">Creation of Separate Simulators for the Device and Payment App</h2>
+
+<p>The original Simulator app has been split into two separate apps: AEVI Device Simulator simulates the device and ecosystem related APIs; AEVI Payment Simulator emulates the payment related APIs.</p>
+
+<p>This change has been necessary to support the new platform. However, it provides additional benefits that will become apparent when we expand our products and customer base.</p>
+
+<h2 id="migration-checklist">Migration Checklist</h2>
+
+<p>If you have an existing App that was compiled against the 1.x.x APIs, the following checklist should assist in migration to SDK 2.x.x</p>
+
+<ul>
+  <li>Change the App Type for your application in the App Manifest - If you were using vaas, please now use vaa_network. Please also note that vaa_network has no access to any of the AEVI SDK APIs. Therefore if your App needs access to these, please use the vaa_merchant App type</li>
+  <li>Migrate any code using the PaymentConfiguration API to the PaymentAppConfiguration API. Note that this API is based on Intents and therefore you will need to refactor this.</li>
+  <li>If you are using the PlatformCompatibility API, please refactor your code to use the methods in the TerminalConfiguration and PaymentAppConfiguration APIs</li>
+  <li>If your app is a Payment App, you will need to refactor your network access code to use standard Java network access APIs</li>
+  <li>Please test your App with the updated Emulator</li>
+</ul>
+
+<p>The <a href="../introduction/dev-lifecycle.html">Development Lifecycle</a> rules remain largely unchanged and we urge you to follow the guidelines contained in that section.</p>
+
+        </div>        
+    </div>
+    </div>
+
+    <footer class="footer with-menu">
+        <div class="controls">
+            <div class="row">
+                <div class="social col-md-4">
+                    <ul class="nav nav-pills">
+                        <li><a href="https://www.facebook.com/wincornixdorf.de" target="_blank"> <i class="fa fa-2x fa-facebook-square"></i></a></li>
+                        <li><a href="https://twitter.com/wincornixdorf" target="_blank"> <i class="fa fa-2x fa-twitter-square"></i></a></li>
+                        <li><a href="https://plus.google.com/102902303639129288885" target="_blank"> <i class="fa fa-2x fa-google-plus-square"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/wincor-nixdorf" target="_blank"> <i class="fa fa-2x fa-linkedin-square"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copy col-md-8">
+                    <h5>AEVI by Wincor-Nixdorf</h5>
+                    <p>Copyright &copy; 2015. All rights reserved</p>
+                    <p><a href="http://www.wincor-nixdorf.com/">http://www.wincor-nixdorf.com/</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="logo"><img src="../assets/img/wincor-logo.png" alt="Wincor Nixdorf Logo" /></div>
+    </footer>
+</div>
+
+
+<script type="text/javascript" src="../assets/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="../assets/js/site.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AEVI SDK documentation v2.3.0</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="../assets/css/aevi.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/docs.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/glyphicons.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body class="url_introduction_sdk_install categories_introduction layout_default">
+
+<div id="main" class="layout">
+
+    <header class="header with-menu">
+        <div class="menu-toggle">
+            <button class="btn btn-default btn-sm"><i class="fa fa-lg fa-bars"></i></button>
+        </div>
+        <div class="brand"><a href="../index.html"><img src="../assets/img/logo.jpg" alt="Site Logo"></a></div>
+        <div class="controls right">
+            <div class="advert">Support? Email <a href="mailto:aevi.sdk@wincor-nixdorf.com" class="advert">support@aevi.com</a></div>
+            <div class="user"></div>
+        </div>
+    </header>
+
+    <div class="clearfix">
+    <div class="sidebar closed">
+    <nav>
+        <ul class="nav">
+            <li>
+                <a href="../index.html"><i class="fa fa-lg fa-book"></i> SDK Documentation</a>
+            </li>
+            
+            <li>
+                <a href="../introduction/index.html"><i class="fa fa-lg fa-bookmark"></i> Introduction</a>
+                
+                <ul class="nav">
+                    
+                    
+                    
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/albert-intro.html">Albert Introduction</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sdk-intro.html">AEVI SDK Introduction</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/whats-new-2.html">What's new in SDK 2.x.x</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li class="active"><a href="../introduction/sdk-install.html">Installation Guide</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sample-apps.html">Sample Applications</a></li>
+            
+            
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/api-compatibility.html">API Compatibility</a></li>
+            
+            
+            
+                    
+                    
+                    <li><a href="../introduction/dev-lifecycle.html">App Development Lifecycle</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/platform-hardening.html">Platform Hardening</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/aevi-emulator.html">AEVI Emulator</a></li>
+            
+            
+            
+                    
+                    
+                    <li><a href="../introduction/albert-developer-device.html">Developer Device</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+        </ul>
+        
+        </li>
+        <li>
+            <a href="../guides/index.html"><i class="fa fa-lg fa-bookmark"></i> Guides</a>
+            
+        </li>
+        <li>
+            <a href="../reference/index.html"><i class="fa fa-lg fa-coffee"></i> Reference</a>
+            
+        </li>
+        </ul>
+    </nav>
+</div>
+
+    <div class="content with-menu" role="main">
+        <ol class="breadcrumb">
+            <li><a href="#">AEVI SDK v2.3.0</a></li>
+        </ol>
+        <div role="content">
+            <h1>Installation Guide</h1>
+            <p>Please install the AEVI SDK by unzipping the AEVI SDK Distribution to a chosen location on your development workstation.</p>
+
+<h2 id="installing-the-android-services-and-sample-apps">Installing the Android Services and Sample Apps</h2>
+
+<p>You will <strong>first</strong> need to install two Android Apps called the ‘Payment Simulator’ and the ‘Device Simulator’ onto your development Tablet Device.</p>
+
+<ul>
+  <li>The ‘Payment Simulator’ is used to mimic the real Payment Application that is installed on the Albert,</li>
+  <li>The ‘Device Simulator’ is used to provide a simulation of the other services available on the real device.</li>
+</ul>
+
+<p>Also there are two different versions of the ‘Device Simulator’ available:</p>
+
+<ul>
+  <li>The <code>DeviceSimulator</code> is for your development tablet (e.g. a Nexus 7) and the AEVI Emulator version 1.x.</li>
+  <li>The <code>DeviceSimulator-emulator</code> is used for the AEVI Emulator version 2.0 and later.</li>
+</ul>
+
+<p>The Apps are installed onto your Android development Tablet Device using the
+Android Debug Bridge (ADB) and the command line.</p>
+
+<blockquote>
+  <p><strong>Caution!</strong>
+The order of installation matters, you <em>MUST</em> install the two AEVI Simulators first.
+This is due to the security mechanism of Android where permissions are granted at install time.
+Some of the components expose permissions that are required by others, these permissions must
+therefore be known to Android prior to installation. If the requested permissions can not be found
+(i.e. when the app that exposes them was not installed) they are not granted in hindsight.</p>
+</blockquote>
+
+<p>Please ensure your current working directory is set to the root of the AEVI SDK installation folder.</p>
+
+<ol>
+  <li>
+    <p>To install the AEVI Device Simulator</p>
+
+    <p>To install on a <strong>generic Tablet or AEVI Emulator Version 1.x</strong>:</p>
+
+    <pre><code> adb install android/simulators/DeviceSimulator-2.3.0.apk
+</code></pre>
+
+    <p>To install on the <strong>AEVI Emulator Version 2.0 and later</strong>:</p>
+
+    <pre><code> adb install android/simulators/DeviceSimulator-2.3.0-emulator.apk
+</code></pre>
+  </li>
+  <li>
+    <p>To install the AEVI Payment Simulator:</p>
+
+    <pre><code> adb install android/simulators/PaymentSimulator-2.3.0.apk
+</code></pre>
+  </li>
+  <li>
+    <p>To optionally install the AEVI Sample app:</p>
+
+    <pre><code> adb install samples/AeviSample-2.3.0.apk
+</code></pre>
+  </li>
+  <li>
+    <p>To optionally install the BarPos Example app:</p>
+
+    <pre><code> adb install samples/BarPosExample-2.3.0.apk
+</code></pre>
+  </li>
+  <li>
+    <p>To optionally install the To The Movies app:</p>
+
+    <pre><code> adb install samples/ToTheMovies-2.3.0.apk
+</code></pre>
+  </li>
+  <li>
+    <p>To optionally install the To The Movies Classic app:</p>
+
+    <pre><code> adb install samples/ToTheMoviesClassic-2.3.0.apk
+</code></pre>
+  </li>
+</ol>
+
+<h3 id="installing-on-the-albert-developer-device">Installing on the Albert developer device.</h3>
+
+<p>A signed version of the Payment Simulator and the AEVI sample apps is provided for the Albert developer device.
+These apks can be identified by the <code>-albert</code> suffix.
+Please see <a href="../introduction/albert-developer-device.html#albert-sample-apps">Albert Sample Apps</a> section for the details.</p>
+
+<h2 id="upgrading-from-a-previous-sdk-version">Upgrading from a previous SDK Version</h2>
+
+<p>To upgrade from the previous release of the AEVI SDK, the sample apps, services and AEVI Simulator must be
+uninstalled from the tablet before commencing the upgrade. These apps can either be uninstalled by 
+using the <strong>Settings</strong> &gt; <strong>Apps</strong> screen or via the command line using <strong>ADB</strong> commands.</p>
+
+<h3 id="uninstalling-an-aevi-sdk-2xx-release-using-the-settings-app">Uninstalling an AEVI SDK 2.x.x release using the Settings App</h3>
+
+<p>Open the <strong>Settings</strong> screen and click on the <em>Apps</em> entry. This should return a list of installed apps. The 
+following apps must be uninstalled before upgrading;</p>
+
+<ol>
+  <li>AEVI Device Simulator</li>
+  <li>AEVI Payment Simulator</li>
+  <li>AEVI Sample</li>
+  <li>BarPosExample</li>
+  <li>ToTheMovies</li>
+</ol>
+
+<p>Click on each app entry to open the app properties screen and then click the <strong>Uninstall</strong> button to remove the
+app from the device.</p>
+
+<h3 id="uninstalling-an-aevi-sdk-2xx-release-using-adb">Uninstalling an AEVI SDK 2.x.x release using ADB</h3>
+
+<p>Execute the following commands to uninstall any previous versions of the AEVI SDK apps</p>
+
+<ol>
+  <li>
+    <p>AEVI Device Simulator</p>
+
+    <pre><code> adb uninstall com.aevi.simulator.device
+</code></pre>
+  </li>
+  <li>
+    <p>AEVI Payment Simulator</p>
+
+    <pre><code> adb uninstall com.aevi.simulator.payment
+</code></pre>
+  </li>
+  <li>
+    <p>Sample</p>
+
+    <pre><code> adb uninstall com.aevi.simpleexample
+</code></pre>
+  </li>
+  <li>
+    <p>BarPosExample</p>
+
+    <pre><code> adb uninstall com.aevi.barposexample
+</code></pre>
+  </li>
+  <li>
+    <p>ToTheMovies</p>
+
+    <pre><code> adb uninstall com.aevi.tothemovies
+</code></pre>
+  </li>
+  <li>
+    <p>ToTheMoviesClassic</p>
+
+    <pre><code> adb uninstall com.aevi.tothemovies.classic
+</code></pre>
+  </li>
+</ol>
+
+<h3 id="uninstalling-an-aevi-sdk-1xx-release-using-the-settings-app">Uninstalling an AEVI SDK 1.x.x release using the Settings App</h3>
+
+<p>Open the <strong>Settings</strong> screen and click on the <em>Apps</em> entry. This should return a list of installed apps. The 
+following apps must be uninstalled before upgrading;</p>
+
+<ol>
+  <li>AEVI Simulator</li>
+  <li>AEVI Sample</li>
+  <li>BarPosExample</li>
+  <li>ToTheMovies</li>
+</ol>
+
+<p>Click on each app entry to open the app properties screen and then click the <strong>Uninstall</strong> button to remove the
+app from the device.</p>
+
+<h3 id="uninstalling-an-aevi-sdk-1xx-release-using-adb">Uninstalling an AEVI SDK 1.x.x release using ADB</h3>
+
+<p>Execute the following commands to uninstall any previous versions of the AEVI SDK apps</p>
+
+<ol>
+  <li>
+    <p>AEVI Simulator</p>
+
+    <pre><code> adb uninstall com.aevi.simulator
+</code></pre>
+  </li>
+  <li>
+    <p>Sample</p>
+
+    <pre><code> adb uninstall com.aevi.simpleexample
+</code></pre>
+  </li>
+  <li>
+    <p>BarPosExample</p>
+
+    <pre><code> adb uninstall com.aevi.barposexample
+</code></pre>
+  </li>
+  <li>
+    <p>ToTheMovies</p>
+
+    <pre><code> adb uninstall com.aevi.tothemovies
+</code></pre>
+  </li>
+  <li>
+    <p>ToTheMoviesClassic</p>
+
+    <pre><code> adb uninstall com.aevi.tothemovies.classic
+</code></pre>
+  </li>
+</ol>
+
+
+        </div>        
+    </div>
+    </div>
+
+    <footer class="footer with-menu">
+        <div class="controls">
+            <div class="row">
+                <div class="social col-md-4">
+                    <ul class="nav nav-pills">
+                        <li><a href="https://www.facebook.com/wincornixdorf.de" target="_blank"> <i class="fa fa-2x fa-facebook-square"></i></a></li>
+                        <li><a href="https://twitter.com/wincornixdorf" target="_blank"> <i class="fa fa-2x fa-twitter-square"></i></a></li>
+                        <li><a href="https://plus.google.com/102902303639129288885" target="_blank"> <i class="fa fa-2x fa-google-plus-square"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/wincor-nixdorf" target="_blank"> <i class="fa fa-2x fa-linkedin-square"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copy col-md-8">
+                    <h5>AEVI by Wincor-Nixdorf</h5>
+                    <p>Copyright &copy; 2015. All rights reserved</p>
+                    <p><a href="http://www.wincor-nixdorf.com/">http://www.wincor-nixdorf.com/</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="logo"><img src="../assets/img/wincor-logo.png" alt="Wincor Nixdorf Logo" /></div>
+    </footer>
+</div>
+
+
+<script type="text/javascript" src="../assets/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="../assets/js/site.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</body>
+</html>

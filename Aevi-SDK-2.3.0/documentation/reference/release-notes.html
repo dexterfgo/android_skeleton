@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AEVI SDK documentation v2.3.0</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="../assets/css/aevi.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/docs.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/glyphicons.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body class="release_notes url_reference_release_notes categories_reference layout_default">
+
+<div id="main" class="layout">
+
+    <header class="header with-menu">
+        <div class="menu-toggle">
+            <button class="btn btn-default btn-sm"><i class="fa fa-lg fa-bars"></i></button>
+        </div>
+        <div class="brand"><a href="../index.html"><img src="../assets/img/logo.jpg" alt="Site Logo"></a></div>
+        <div class="controls right">
+            <div class="advert">Support? Email <a href="mailto:aevi.sdk@wincor-nixdorf.com" class="advert">support@aevi.com</a></div>
+            <div class="user"></div>
+        </div>
+    </header>
+
+    <div class="clearfix">
+    <div class="sidebar closed">
+    <nav>
+        <ul class="nav">
+            <li>
+                <a href="../index.html"><i class="fa fa-lg fa-book"></i> SDK Documentation</a>
+            </li>
+            
+            <li>
+                <a href="../introduction/index.html"><i class="fa fa-lg fa-bookmark"></i> Introduction</a>
+                
+        </li>
+        <li>
+            <a href="../guides/index.html"><i class="fa fa-lg fa-bookmark"></i> Guides</a>
+            
+        </li>
+        <li>
+            <a href="../reference/index.html"><i class="fa fa-lg fa-coffee"></i> Reference</a>
+            
+            <ul class="nav">
+                
+                
+        
+                
+        
+                
+        
+                
+                
+        
+        
+                
+                
+                <li><a href="../reference/javadocs.html">Javadocs</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../reference/device-specifications.html">Device Specification</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../reference/aevi-eula.html">Terms of Use</a></li>
+        
+        
+        
+                
+                
+                <li class="active"><a href="../reference/release-notes.html">Release Notes</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../reference/permissions-and-manifest.html">Permissions and Manifest</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../reference/transaction-results.html">Transaction Results</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+                
+                <li><a href="../reference/support.html">Getting Support</a></li>
+        
+        
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+        </ul>
+        
+        </li>
+        </ul>
+    </nav>
+</div>
+
+    <div class="content with-menu" role="main">
+        <ol class="breadcrumb">
+            <li><a href="#">AEVI SDK v2.3.0</a></li>
+        </ol>
+        <div role="content">
+            <h1>Release Notes</h1>
+            <h2 id="compatibility-matrix-for-albert">Compatibility matrix for Albert</h2>
+
+<p>The table below shows the platform software versions that were used on the Albert during the SDK release tests
+and are therefore compatible with the SDK release shown.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>SDK Version</th>
+      <th>AEVI Services Version</th>
+      <th>Payment Application</th>
+      <th>Albert OS Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.3.0</td>
+      <td>1.8.3.1</td>
+      <td>1.3.41</td>
+      <td>6.23 - patch 2</td>
+    </tr>
+    <tr>
+      <td>2.2.0</td>
+      <td>1.8.1</td>
+      <td>1.3.39</td>
+      <td>6.23 - patch 2</td>
+    </tr>
+    <tr>
+      <td>2.1.0</td>
+      <td>1.8.0</td>
+      <td>1.3.38</td>
+      <td>6.23</td>
+    </tr>
+    <tr>
+      <td>2.1.0</td>
+      <td>1.7.0.4</td>
+      <td>1.3.37</td>
+      <td>6.23</td>
+    </tr>
+    <tr>
+      <td>2.0.1</td>
+      <td>1.6.0.1</td>
+      <td>1.3.36</td>
+      <td>6.22</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="compatibility-matrix-for-aevi-emulator">Compatibility matrix for AEVI emulator</h2>
+
+<p>The table below shows the AEVI emulator software versions that were used during the SDK release tests.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>SDK Version</th>
+      <th>AEVI Emulator Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.3.0</td>
+      <td>2.0.0</td>
+    </tr>
+    <tr>
+      <td>2.2.0</td>
+      <td>2.0.0</td>
+    </tr>
+    <tr>
+      <td>2.1.0</td>
+      <td>2.0.0</td>
+    </tr>
+    <tr>
+      <td>2.0.1</td>
+      <td>2.0.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="version-230-feb-27th-2015">Version 2.3.0 (Feb 27th 2015)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>New TokenRequest type added to request token from payment application for the purpose of repeat payments or subscriptions</li>
+  <li>Updates to PaymentAppConfiguration to include a flag indicating if the payment application can support accessibility mode</li>
+  <li>Updates to AEVIRequest to include flag for accessibility mode</li>
+  <li>Altered logic of AEVI sample application to disable pre-auth complete and reversal buttons when they can’t be used</li>
+  <li>AEVI sample application now shows accessibility mode flag in configuration screen</li>
+  <li>Additional card types added to CardType; OTHER_DEBIT, OTHER_CREDIT, OTHER_CHARGE</li>
+  <li>Complete documentation restyle; Javadocs now embedded within main SDK documentation will allow for better integration</li>
+  <li>Other minor documentation changes</li>
+</ul>
+
+<p>Known Issues:</p>
+
+<ul>
+  <li>The Albert OS 6.23 does not yet include support for Deposit or Token requests therefore they fail if attempted on an Albert device</li>
+  <li>Emulator and generic device do not display correct error messaging when ToTheMovies app is unable to print the ticket</li>
+  <li>The Device Simulator does not detect when the external Bixolon printer is out of paper.</li>
+  <li>A Tip amount is not allowed in a PaymentRequest Call when Tipping is disabled on the Payment App</li>
+  <li>Printer Compatibility does not detect when the Printer Module is not installed on the Device</li>
+</ul>
+
+<h2 id="version-220-jan-30th-2015">Version 2.2.0 (Jan 30th 2015)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Updates to AEVIRequest object to implement new printing methods for single receipt functionality</li>
+  <li>Bug fix ToTheMovies (non-gradle) build</li>
+  <li>Bug fix ToTheMovies to display messages correctly during printing errors</li>
+  <li>Removed the maven build example from the samples.</li>
+  <li>Minor documentation enhancements</li>
+  <li>Added <code>*-albert.apk</code> files to the release archive to allow sample apps and payment simulator to be installed directly onto the Albert</li>
+  <li>Fixed toast message on payment sample reversal to be consistent</li>
+  <li>Renamed <code>AeviApi-release.aar</code> to <code>AeviApi-2.2.0.aar</code> for consistency</li>
+  <li>Added Albert guide to documentation</li>
+  <li>Added compatibility tables to release notes (see above)</li>
+  <li>Fixed Payment Simulator bug on Albert. Selected merchant and transaction types are now updated correctly.</li>
+  <li>Bug fix in compatibility setting for TerminalConfiguration</li>
+  <li>Better messaging in MagStripe section of AEVISample application</li>
+  <li>Added email logging to DeviceSimulator</li>
+</ul>
+
+<p>Known Issues:</p>
+
+<ul>
+  <li>Emulator and generic device do not display correct error messaging when ToTheMovies app is unable to print the ticket</li>
+  <li>The Device Simulator does not detect when the external Bixolon printer is out of paper.</li>
+  <li>A Tip amount is not allowed in a PaymentRequest Call when Tipping is disabled on the Payment App</li>
+  <li>Printer Compatibility does not detect when the Printer Module is not installed on the Device</li>
+</ul>
+
+<h2 id="version-210-november-28th-2014">Version 2.1.0 (November 28th 2014)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Updates to the Payment API including: Support for Deposit Transactions; Filtering by CardType, AccountType and CardEntryType; Support for custom parameters in a FinancialRequest</li>
+  <li>Updates to the PaymentAppConfiguration API including: Support for Integrated and Standalone Modes; Extending the API to return Merchant Names in addition to IDs</li>
+  <li>Updates to the LED API enabling comprehensive LED sequencing</li>
+  <li>Updates to the AEVISample App to support the enhancements to the LED and Payment APIs</li>
+  <li>Updates to the DeviceSimulator and PaymentSimulator to support the new APIs</li>
+  <li>Fixes to the Device Simulator (&amp; Albert) Authentication services to return RESULT_CANCELED when the cancel button is pressed</li>
+  <li>Various bug fixes and improvements</li>
+  <li>Minor documentation enhancements</li>
+  <li>Amendments to the End User License Agreement</li>
+  <li>Restyled JavaDocs</li>
+</ul>
+
+<p>Known Issues:</p>
+
+<ul>
+  <li>All SDK 2.x.x Releases require Albert OS Release 6.23.0 or later</li>
+  <li>DeviceSimulator Email implementation does not work correctly on the Emulator</li>
+  <li>A Tip amount is not allowed in a PaymentRequest Call when Tipping is disabled on the Payment App</li>
+  <li>Printer Compatibility does not detect when the Printer Module is not installed on the Device</li>
+</ul>
+
+<h2 id="version-201-november-5th-2014">Version 2.0.1 (November 5th 2014)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Fix to restore crash and transaction log functionality of the AEVI Device Simulator</li>
+  <li>Updates to the ToTheMovies App sample code and associated documentation to support patched WebView component</li>
+  <li>Various documentation corrections after internal review</li>
+  <li>Various minor enhancements to Sample Apps</li>
+  <li>Various documentation and code fixes following feedback received from CBA from 1.x.x releases of the SDK</li>
+</ul>
+
+<p>Known Issues:</p>
+
+<ul>
+  <li>AEVISample is not able to detect when the Payment Simulator has been installed in the wrong order. This will be resolved prior to the next planned release.</li>
+  <li>Albert OS Release 6.22.0 does not support the Authentication API. Further information is available in the release notes for the OS Release.</li>
+  <li>Albert OS Release 6.22.0 does not support Web based Applications such as ToTheMovies. Further information is available in the release notes for the OS Release.</li>
+  <li>Maven build of ToTheMovies application is no longer functional as Maven does not support Android SDK versions above 15</li>
+  <li>Both ToTheMovies apps can crash when printing a receipt if the printer has not been used since boot. This will be resolved in the next release.</li>
+</ul>
+
+<h2 id="version-200-october-31st-2014">Version 2.0.0 (October 31st 2014)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Updates to SDK and corresponding APIs to support the new Albert Security Architecture (see section What’s New in Release 2.0)</li>
+  <li>There is no backward compatibility with Version 1.x of the SDK. All Apps will require minor refactoring and recompilation against SDK 2.0.0. Please refer to the section: What’s New in Release 2.0.</li>
+  <li>The AEVI Simulator has now been split into 2 separate simulators: AEVI Device Simulator and AEVI Payment Simulator. It is now possible to install the Payment Simulator on an Albert Device for testing purposes.</li>
+  <li>Enhancements to the Simulator to display Transaction Logs</li>
+  <li>Enhancements to the Mail Compatibility API to indicate when an eMail Account is configured.</li>
+  <li>Enhancements to the MOTO Compatibility API to indicate when MOTO Services are enabled by the Bank.</li>
+  <li>Various documentation corrections and enhancements as a result of feedback from CBA and internal Review</li>
+</ul>
+
+<p>Known Issues:</p>
+
+<ul>
+  <li>Documentation inconsistencies may exist following extensive changes as a result of implementing the New Security Architecture. A full document review is planned prior to the next release</li>
+  <li>Certain observations raised by CBA in recent feedback have not been assessed or incorporated into this release. These will be assessed and any required changes shall be incorporated into the next release.</li>
+  <li>AEVISample is not able to detect when the Payment Simulator has been installed in the wrong order. This will be resolved prior to the next planned release.</li>
+  <li>Albert OS Release 6.22.0 does not support the Authentication API. Further information is available in the release notes for the OS Release.</li>
+  <li>Albert OS Release 6.22.0 does not support Web based Applications such as ToTheMovies. Further information is available in the release notes for the OS Release.</li>
+</ul>
+
+<h2 id="version-130-september-30th-2014">Version 1.3.0 (September 30th 2014)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Updates to the Authentication API to enable Authentication to occur against specific roles</li>
+  <li>Provision of a new guide on using the Camera</li>
+  <li>Fixes to enable the ToTheMovies and ToTheMovies-Classic Samples to work</li>
+  <li>Enhancements and Bug Fixes to the Simulator including: enabling the display of Crashlog data; enable the display of <code>string set</code> data stored via SharedPreferences; validation on Merchant and Currency configuration to prevent incorrect configuration</li>
+  <li>Various documentation corrections and enhancements as a result of feedback from CBA and internal Review</li>
+</ul>
+
+<p>Known Issues:</p>
+
+<ul>
+  <li><code>TerminalConfiguration.getTerminalConfiguration()</code> JavaDocs documentation needs to be updated with information on Exceptions that can be thrown.</li>
+</ul>
+
+<h2 id="version-124-august-15th-2014">Version 1.2.4 (August 15th 2014)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Enhancements to the AEVI-Simulator and AEVI-Sample apps to improve usability and stability</li>
+  <li>Updates to the Emulator documentation to align with the first release of the Emulator</li>
+  <li>Minor bugfix to the AEVI-Simulator to enable System Bar button hiding on the Emulator</li>
+  <li>Various documentation improvements following a detailed review by CBA</li>
+  <li>Updates to the Gradle, Maven and Eclipse build scripts for the sample projects</li>
+  <li>Minor updates to terms and conditions removing references to Pi and AppBank and fixing some typographical issues</li>
+</ul>
+
+<p>Known Issues:</p>
+
+<ul>
+  <li>The ‘To the Movies’ samples do not work on the Albert Device or the Emulator due to a restriction in using SHA-1 Hash Algorithms for Payment relevant Apps (as part of the Trusted Communications manager design). This persistent issue will be investigated as part of the next release (v1.2.5).</li>
+  <li>The AEVI Simulator does not prevent incorrect configuration by the user of the Merchant and Currency settings. This long-standing issue will be resolved in the next release (v1.2.5).</li>
+  <li>The AEVI Simulator SharedPreferences view does not display <code>string sets</code>. This issue will be resolved in the next release (v1.2.5).</li>
+</ul>
+
+<h2 id="version-123-june-27th-2014">Version 1.2.3 (June 27th 2014)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Reverted a documentation change. The document now states the Albert has tvdpi.</li>
+  <li>Updates to the Simulator to support the upcoming release of Albert Emulator.</li>
+</ul>
+
+<p>Known Issues:</p>
+
+<ul>
+  <li>The ‘To the Movies’ samples do not work on the Albert Device or the Emulator due to a restriction in using SHA-1 Hash Algorithms in Network Communication Protocol Algorithms</li>
+  <li>Additional configuration required to compile the Gradle based Samples using Android Studio Developer preview</li>
+</ul>
+
+<h2 id="version-122-june-13th-2014">Version 1.2.2 (June 13th 2014)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Documentation now indicates that Magstripe API is supported</li>
+  <li>Updated the AEVI sample to include compatibility checks</li>
+  <li>General updates to documentation including minor corrections and additional information</li>
+  <li>Minor bug-fixes and code improvements</li>
+</ul>
+
+<p>Known Issues:</p>
+
+<ul>
+  <li>The ‘To the Movies’ samples do not work on the Albert Device or the Emulator due to a restriction in using SHA-1 Hash Algorithms in Network Communication Protocol Algorithms</li>
+  <li>Additional configuration required to compile the Gradle based Samples using Android Studio Developer preview</li>
+</ul>
+
+<h2 id="version-121-may-30th-2014">Version 1.2.1 (May 30th 2014)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Addition of LED Notification API</li>
+  <li>General updates to Documentation including minor corrections and additional information</li>
+  <li>Minor bug-fixes and code improvements</li>
+</ul>
+
+<p>Known Issues:</p>
+
+<ul>
+  <li>The ‘To the Movies’ samples do not work on the Albert Device or the Emulator due to a restriction in using SHA-1 Hash Algorithms in Network Communication Protocol Algorithms</li>
+  <li>Additional configuration required to compile the Gradle based Samples using Android Studio Developer preview</li>
+</ul>
+
+<h2 id="version-111-february-17th-2014">Version 1.1.1 (February 17th 2014)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>New documentation styling</li>
+  <li>Various fixes to documentation including clear display of SDK version number</li>
+  <li>Added the Compatibility API</li>
+  <li>Enhanced samples and various code improvements</li>
+</ul>
+
+<h2 id="version-110-february-14th-2014">Version 1.1.0 (February 14th 2014)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Tested on both CBA version of the Albert Device and the AEVI Simulator</li>
+  <li>Added a Currency selector in the Payment Sample</li>
+  <li>Various updates to the documentation</li>
+  <li>Various code improvements especially on the Albert device</li>
+  <li>Fixed ToTheMoves sample (Albert device only)</li>
+  <li>Added Platform Compatibility API (BETA)</li>
+</ul>
+
+<h2 id="version-102-november-22th-2013">Version 1.0.2 (November 22th 2013)</h2>
+
+<ul>
+  <li>API compatibility table incorrectly states that MoTo Refunds are supported</li>
+  <li>Minor documentation improvements</li>
+</ul>
+
+<h2 id="version-101-november-15th-2013">Version 1.0.1 (November 15th 2013)</h2>
+
+<ul>
+  <li>New documentation styling</li>
+  <li>System navigation buttons hiding in the Emulator</li>
+  <li>ToTheMovies Samples can now be installed simultaneously</li>
+  <li>ToTheMovies Classic checks for a network connection</li>
+  <li>Updated documentation and various code improvements</li>
+</ul>
+
+<h2 id="version-100-november-8th-2013">Version 1.0.0 (November 8th 2013)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>A new eMail API and supporting documentation</li>
+  <li>A new Java based ToTheMovies sample app</li>
+  <li>Enhancements to the AEVISample App to include eMail API and HTTPs Get samples</li>
+  <li>New introduction section to using the Emulator</li>
+  <li>A new guide to building secure connections</li>
+  <li>Enhancements to the Permissions and Manifest Changes section</li>
+  <li>Enhancements to the App Development Lifecycle section</li>
+  <li>General documentation enhancements including restructuring and reformatting</li>
+</ul>
+
+<p>Known issues:
+* Cannot install both ToTheMovies Samples simultaneously
+* ToTheMovies Classic sample can crash when there is no network connection
+* AEVISample System Bar example does not hide nav bar buttons on the Emulator</p>
+
+<h2 id="version-0111-october-28th-2013">Version 0.11.1 (October 28th 2013)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Changed printer api to only use the default printer</li>
+  <li>Updated documentation and various code improvements</li>
+</ul>
+
+<h2 id="version-0110-october-25th-2013">Version 0.11.0 (October 25th 2013)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Fixed a number of issues with the printer API</li>
+  <li>Introduced system bar API</li>
+  <li>Updated documentation and various code improvements</li>
+</ul>
+
+<h2 id="version-0103-october-4th-2013">Version 0.10.3 (October 4th 2013)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Fixed some small bugs in the ToTheMovies app</li>
+  <li>Fixed unclear canceling of authorisation</li>
+  <li>Updated documentation and various code improvements</li>
+</ul>
+
+<p>Known Issues:</p>
+
+<ul>
+  <li>First call to PrintService.connect() returns false</li>
+  <li>Printing multiple images over a Bluetooth printer creates garbage output</li>
+  <li>Printing without paper in Albert results in a USB driver crash / segfault</li>
+</ul>
+
+<h2 id="version-0102-october-2th-2013">Version 0.10.2 (October 2th 2013)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Fixed various problems with sample app builds</li>
+  <li>Fixed smart card may fail on long APDU messages (#483)</li>
+  <li>Fixed AEVI Simulator randomly crashing (#419)</li>
+  <li>Updated documentation and various code improvements</li>
+</ul>
+
+<p>Known Issues:</p>
+
+<ul>
+  <li>First call to PrintService.connect() returns false</li>
+  <li>Printing multiple images over a Bluetooth printer creates garbage output</li>
+  <li>Printing without paper in Albert results in a USB driver crash / segfault</li>
+</ul>
+
+<h2 id="version-0101-september-30th-2013">Version 0.10.1 (September 30th 2013)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Fixed build issues with samples sources</li>
+  <li>Included networking sample app and source</li>
+  <li>Fixed a memory leak for various service samples</li>
+  <li>Updated documentation and various code improvements.</li>
+</ul>
+
+<p>Known Issues:</p>
+
+<ul>
+  <li>First call to PrintService.connect() returns false</li>
+  <li>Printing multiple images over a Bluetooth printer creates garbage output</li>
+  <li>Printing without paper in Albert results in a USB driver crash / segfault</li>
+</ul>
+
+<h2 id="version-0100-september-27th-2013">Version 0.10.0 (September 27th 2013)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Added Smart Card reading API</li>
+  <li>Added Magstripe reading API</li>
+  <li>Added Pre-Auth and Completion API</li>
+  <li>Added a sample app demonstrating the use secure communication and HTML and JavaScript to build an app</li>
+  <li>Added bug fix version number to the API</li>
+  <li>Updated network and manifest documentation chapter</li>
+  <li>Update printer samples</li>
+  <li>Updated documentation and various code improvements</li>
+</ul>
+
+<p>Known Issues:</p>
+
+<ul>
+  <li>First call to PrintService.connect() returns false</li>
+  <li>Printing multiple images over a Bluetooth printer creates garbage output</li>
+  <li>Printing without paper in Albert results in a USB driver crash / segfault</li>
+</ul>
+
+<h2 id="version-091-september-5th-2013">Version 0.9.1 (September 5th 2013)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Minor documentation issues</li>
+  <li>Improved Print Preview</li>
+  <li>Fixes to shared preferences example</li>
+</ul>
+
+<p>Known Issues:</p>
+
+<ul>
+  <li>First call to PrintService.connect() returns false</li>
+  <li>Printing multiple images over a Bluetooth printer creates garbage output</li>
+</ul>
+
+<h2 id="version-09-august-30th-2013">Version 0.9 (August 30th 2013)</h2>
+
+<p>New APIs:</p>
+
+<ul>
+  <li>Configuration API</li>
+  <li>Synchronised Shared Preferences API</li>
+  <li>Simple User Authentication API</li>
+  <li>Transaction Log API</li>
+</ul>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Support for Print Image Preview in AEVI Simulator</li>
+  <li>Print and Crashlog Services have been refactored into separate Service Providers</li>
+</ul>
+
+<p>Known Issues:</p>
+
+<ul>
+  <li>Support for getStringSet() in Shared Preferences Activity of Sample App requires enhancement</li>
+  <li>Printing multiple images creates garbage output</li>
+  <li>Query printer by name always returns printer found</li>
+  <li>Minor typographical issues</li>
+</ul>
+
+<h2 id="version-082-august-1st-2013">Version 0.8.2 (August 1st 2013)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Minor typographical issues</li>
+</ul>
+
+<h2 id="version-081-july-30th-2013">Version 0.8.1 (July 30th 2013)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Minor typographical issues</li>
+  <li>Minor fixes to Simple Payment example</li>
+  <li>Bug-fixes to API library</li>
+</ul>
+
+<h2 id="version-08-july-26th-2013">Version 0.8 (July 26th 2013)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>AEVI SDK Rebranding</li>
+  <li>Enhanced documentation</li>
+  <li>General refactoring of AEVI SDK and AEVI Simulator Code</li>
+  <li>Additional categorisation for MOTO</li>
+  <li>Various bug-fixes</li>
+  <li>Multiple Source distributions for Sample App</li>
+</ul>
+
+<h2 id="version-07-june-14th-2013">Version 0.7 (June 14th 2013)</h2>
+
+<p>Changes and fixes:</p>
+
+<ul>
+  <li>Payment permissions</li>
+  <li>Crash log collection service</li>
+  <li>Cleanup of the services initialisation code</li>
+  <li>Transaction types and payment app result documentation</li>
+  <li>Image printing support</li>
+  <li>Terminal ID no longer returns null</li>
+  <li>Merged Services into the AEVI Simulator</li>
+  <li>Documentation Internet Explorer formatting issues have been resolved</li>
+  <li>Crash on a Nexus S has been resolved</li>
+  <li>Updated documentation and various code improvements</li>
+</ul>
+
+<h2 id="version-06-may-17th-2013">Version 0.6 (May 17th 2013)</h2>
+
+<p>New transaction types:</p>
+
+<ul>
+  <li>MOTO Payment</li>
+  <li>MOTO Refund</li>
+  <li>Reversal</li>
+</ul>
+
+<p>Other changes and fixes	:</p>
+
+<ul>
+  <li>Printing support for text based receipts and tickets</li>
+  <li>Remove Extended Payment API sections from the AEVI SDK</li>
+  <li>Default currency support</li>
+  <li>Multi merchant support</li>
+  <li>Created a more generic Transaction Number Response mechanism</li>
+  <li>Split Response into Transaction Status &amp; Error Code</li>
+  <li>Query for supported Transactions Types and ability to configure the AEVI Simulator</li>
+  <li>Added Payment app State field to the PaymentConfiguration</li>
+  <li>Fractional amounts are not rounding down but throw an exception</li>
+  <li>Updated documentation and various code improvements</li>
+  <li>Updated sample apps to reflect the changes</li>
+  <li>BarPos &amp; example app check if the AEVI Simulator is installed.</li>
+</ul>
+
+<h2 id="version-05-april-19th-2013">Version 0.5 (April 19th 2013)</h2>
+
+<ul>
+  <li>Initial release of the AEVI SDK, sample apps and AEVI Simulator</li>
+  <li>Includes the Simple Payment API and Extended Payment API.</li>
+</ul>
+
+<p>Known issues:</p>
+
+<ul>
+  <li>AEVI Simulator screen does not render correctly on an Android phone. Developers are advised to use an
+Android Virtual Device or Tablet such as the Google Nexus 7 (2012)</li>
+</ul>
+
+        </div>        
+    </div>
+    </div>
+
+    <footer class="footer with-menu">
+        <div class="controls">
+            <div class="row">
+                <div class="social col-md-4">
+                    <ul class="nav nav-pills">
+                        <li><a href="https://www.facebook.com/wincornixdorf.de" target="_blank"> <i class="fa fa-2x fa-facebook-square"></i></a></li>
+                        <li><a href="https://twitter.com/wincornixdorf" target="_blank"> <i class="fa fa-2x fa-twitter-square"></i></a></li>
+                        <li><a href="https://plus.google.com/102902303639129288885" target="_blank"> <i class="fa fa-2x fa-google-plus-square"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/wincor-nixdorf" target="_blank"> <i class="fa fa-2x fa-linkedin-square"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copy col-md-8">
+                    <h5>AEVI by Wincor-Nixdorf</h5>
+                    <p>Copyright &copy; 2015. All rights reserved</p>
+                    <p><a href="http://www.wincor-nixdorf.com/">http://www.wincor-nixdorf.com/</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="logo"><img src="../assets/img/wincor-logo.png" alt="Wincor Nixdorf Logo" /></div>
+    </footer>
+</div>
+
+
+<script type="text/javascript" src="../assets/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="../assets/js/site.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</body>
+</html>

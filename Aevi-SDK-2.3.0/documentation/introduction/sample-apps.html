@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AEVI SDK documentation v2.3.0</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="../assets/css/aevi.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/docs.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/glyphicons.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body class="url_introduction_sample_apps categories_introduction layout_default">
+
+<div id="main" class="layout">
+
+    <header class="header with-menu">
+        <div class="menu-toggle">
+            <button class="btn btn-default btn-sm"><i class="fa fa-lg fa-bars"></i></button>
+        </div>
+        <div class="brand"><a href="../index.html"><img src="../assets/img/logo.jpg" alt="Site Logo"></a></div>
+        <div class="controls right">
+            <div class="advert">Support? Email <a href="mailto:aevi.sdk@wincor-nixdorf.com" class="advert">support@aevi.com</a></div>
+            <div class="user"></div>
+        </div>
+    </header>
+
+    <div class="clearfix">
+    <div class="sidebar closed">
+    <nav>
+        <ul class="nav">
+            <li>
+                <a href="../index.html"><i class="fa fa-lg fa-book"></i> SDK Documentation</a>
+            </li>
+            
+            <li>
+                <a href="../introduction/index.html"><i class="fa fa-lg fa-bookmark"></i> Introduction</a>
+                
+                <ul class="nav">
+                    
+                    
+                    
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/albert-intro.html">Albert Introduction</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sdk-intro.html">AEVI SDK Introduction</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/whats-new-2.html">What's new in SDK 2.x.x</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sdk-install.html">Installation Guide</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li class="active"><a href="../introduction/sample-apps.html">Sample Applications</a></li>
+            
+            
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/api-compatibility.html">API Compatibility</a></li>
+            
+            
+            
+                    
+                    
+                    <li><a href="../introduction/dev-lifecycle.html">App Development Lifecycle</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/platform-hardening.html">Platform Hardening</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/aevi-emulator.html">AEVI Emulator</a></li>
+            
+            
+            
+                    
+                    
+                    <li><a href="../introduction/albert-developer-device.html">Developer Device</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+        </ul>
+        
+        </li>
+        <li>
+            <a href="../guides/index.html"><i class="fa fa-lg fa-bookmark"></i> Guides</a>
+            
+        </li>
+        <li>
+            <a href="../reference/index.html"><i class="fa fa-lg fa-coffee"></i> Reference</a>
+            
+        </li>
+        </ul>
+    </nav>
+</div>
+
+    <div class="content with-menu" role="main">
+        <ol class="breadcrumb">
+            <li><a href="#">AEVI SDK v2.3.0</a></li>
+        </ol>
+        <div role="content">
+            <h1>Sample Applications</h1>
+            <p>The AEVI SDK includes sample code for the Payment APIs. This illustrates how to work with the APIs and provides an
+indication of how the payment integration functions. </p>
+
+<p>Please note that in order to run the examples, the AEVI simulators must be installed. Instructions to install are provided in
+the <a href="../introduction/sdk-install.html">Installation Guide</a></p>
+
+<h2 id="device-and-payment-simulators">Device and Payment Simulators</h2>
+
+<p>The Device and Payment Simulators are primarily background applications providing services to support app development for the AEVI platform. They implement all the APIs published by the SDK. For example, when an app uses the Payment API to process a payment, the Payment Simulator is called to complete the process.</p>
+
+<p>The simulators also include some extra screens that allow both configuration and analysis of the behavior of an app. This is made available via the AEVI Device Simulator and AEVI Payment Simulator icons on the Launcher. When instantiated, they each present a menu with configuration options that are self-explanatory.</p>
+
+<div class="figure">
+	<a href="../img/samples/simulator-settings.png" class="gallery">
+		<img class="gallery" src="../img/samples/simulator-settings.png" />
+	</a>
+	<span>Device Simulator Main Menu</span> 
+</div>
+
+<h3 id="configuration">Configuration</h3>
+
+<p>The following configuration options are available on the Payment Simulator:</p>
+
+<ol>
+  <li>Currencies</li>
+  <li>Merchants</li>
+  <li>Transaction types</li>
+  <li>Integrated Mode</li>
+</ol>
+
+<p>The following configuration options are available on the Device Simulator:</p>
+
+<ol>
+  <li>View Shared Preferences</li>
+  <li>View Crash Logs</li>
+  <li>View Transaction Logs</li>
+</ol>
+
+<p>Pressing any of these options will initiate a separate screen to set the configuration. The configuration is stored 
+using the standard Android Shared Preferences functionality. The data can be cleared from the <strong>Settings</strong> &gt; <strong>Apps</strong> 
+screen, by navigating to the <em>AEVI Payment Simulator</em> info screen and pressing the <em>Clear data</em> button.</p>
+
+<h3 id="differences-between-the-simulators-and-the-real-device">Differences between the Simulators and the real Device</h3>
+
+<p>The Device and Payment Simulators have been written primarily to enable a developer to test their App. They explicitly provide the ability to simulate failure conditions
+enabling developers to cater for all outcomes. Furthermore, they are completely standalone and therefore independent of the host systems typically required for processing payments.</p>
+
+<p>The simulators’ screens mimic the functionality of real Albert screens whenever possible. However, the real device includes some UI customisations that are not available on generic Android devices. The one key exception is the option to cancel an activity: This can be achieved by pressing the back button on your android device. This will result in an “Are you sure?” message. Note that the Payment app on the real Albert device implements its own version of the Back Button. 
+Furthermore, the Home and Menu buttons are also disabled.</p>
+
+<h3 id="simulation-of-integrated-mode">Simulation of Integrated Mode</h3>
+
+<p>The Payment Simulator provides basic support for testing your App when the Device is in Integrated Mode:</p>
+
+<ul>
+  <li>A Switch is provided in the Payment Simulator to set Standalone or Integrated Modes</li>
+  <li>When in Integrated Mode, access to Financial Transactions is disabled</li>
+  <li>Broadcast Events are sent when the Simulator is switched between Standalone and Integrated Modes</li>
+</ul>
+
+<h2 id="aevi-sample">AEVI Sample</h2>
+
+<p>The purpose of this example is to demonstrate how the payment app handles some different payment and refund
+transactions.</p>
+
+<p>The start-up screen (see Figure 3 below) shows different sample activities, each demonstrating a part of the AEVI SDK.</p>
+
+<div class="figure">
+	<a href="../img/samples/sample-app-startup.png" class="gallery">
+		<img class="gallery" src="../img/samples/sample-app-startup.png" />
+	</a>
+	<span>Sample app start screen</span> 
+</div>
+
+<p>The compiled version of this sample app can be installed using Android Debug Bridge (ADB):</p>
+
+<pre><code>ADB install &lt;sdk&gt;/samples/AeviSample-2.3.0.apk
+</code></pre>
+
+<p>The Smart Card and Mag Stripe examples require the use of an approved external USB card reader, plugged into the 
+development tablet. See <a href="../guides/card-api.html">Card Reader API</a> for more details. Running these samples for the
+first time, a conformation pop up will appear asking the user to allow the Device simulator to access the USB device.
+This pop-up confirmation dialog will not appear on the production Albert device.</p>
+
+<div class="figure">
+	<a href="../img/samples/USB-pop-up.png" class="gallery">
+		<img class="gallery" src="../img/samples/USB-pop-up.png" />
+	</a>
+	<span>USB confirmation pop-up</span> 
+</div>
+
+<p>The Smart Card Sample sends APDU commands to read data from a non-payment JavaCard.
+It is recommended that the smartcard listed in the <a href="../guides/card-api.html#smart-card-api">Smart Card API</a> section is used.
+Although the Mag Stripe sample can read data from a payment card when using the simulator, this is disabled on the production hardware.</p>
+
+<p>The “Printing”, “Smart Card”, and “Mag Stripe” samples all require additional hardware and so will not work on the
+Android emulator.</p>
+
+<p>The “Secure Communications sample” requires a URL change (see
+<a href="../reference/permissions-and-manifest.html#secure-communications">Secure Communications</a>)
+and so will only run without error on the Albert device or on the emulated Albert device.</p>
+
+<h2 id="to-the-movies-network-sample">To The Movies Network sample</h2>
+
+<p>To The Movies! Apps have been written to demonstrate the concept of an App that can both take a payment and communicate 
+with an external service (over a secure channel). There are two versions of the app included in the SDK: A classic Java App; A web based App that uses typical web technologies (HTML5/JavaScript) running in a lightweight Java based container. </p>
+
+<p>The classic version of this sample app can be installed using ADB:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">adb install &lt;sdk&gt;/samples/ToTheMoviesClassic-2.3.0.apk</code></pre></div>
+
+<p>The web version of this sample app can be installed using ADB:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">adb install &lt;sdk&gt;/samples/ToTheMovies-2.3.0.apk</code></pre></div>
+
+<p>The two screenshots below are from the classic version and show the lists of movies that are currently playing and the 
+‘buy ticket’ screen where a customer can read additional information and buy an entrance ticket. After the “buy your 
+ticket” button has been pressed, the Payment App is called with the amount listed. When the payment completed successfully 
+a (demonstration) QR-code is printed that can used to gain access to the venue. When the payment process fails, a
+friendly error message is shown.</p>
+
+<div class="figure">
+  <div class="subfigure">
+    <a href="../img/samples/to-the-movies-1.png" class="gallery">
+      <img src="../img/samples/to-the-movies-1.png" />
+    </a>
+    <span>Movie listing</span>
+  </div>
+  <div class="subfigure">
+    <a href="../img/samples/to-the-movies-2.png" class="gallery">
+      <img src="../img/samples/to-the-movies-2.png" />
+    </a>
+    <span>Buy a ticket</span>
+  </div>
+</div>
+
+<blockquote>
+  <p>Note: Whilst it is possible to write a Web based (HTML5, CSS3 &amp; JavaScript) App, some Acquirers and Retailers may not allow these types of Apps on their platform for security reasons. Please check with your Acquirer / Retailer.</p>
+</blockquote>
+
+<h3 id="the-movie-db-api">The movie DB API</h3>
+
+<p>The app takes data from a REST API provided by <a href="https://www.themoviedb.org/">themoviedb.org</a>. This API can be accessed 
+over HTTPS by making simple GET requests. </p>
+
+<p>Here is an example of requesting the listing of upcoming movies using curl from the command line;</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl api.themoviedb.org/3/movie/upcoming?api_key<span class="o">=</span>b4b100d1055bb5ec2219ed64270ab0d7 <span class="p">|</span> python -m json.tool</code></pre></div>
+
+<p>This results in the following JSON;</p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&quot;dates&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;maximum&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-22&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;minimum&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-01&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;adult&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;backdrop_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/kx1OWBxkExkYNRxXVPWw4rpm1gC.jpg&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">133805</span><span class="p">,</span>
+            <span class="nt">&quot;original_title&quot;</span><span class="p">:</span> <span class="s2">&quot;Carrie&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;popularity&quot;</span><span class="p">:</span> <span class="mf">5.64421011223914</span><span class="p">,</span>
+            <span class="nt">&quot;poster_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/8R5t1QEcq5aYFxu9hFSegGhRiB3.jpg&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;release_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-18&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Carrie&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;vote_average&quot;</span><span class="p">:</span> <span class="mf">8.3</span><span class="p">,</span>
+            <span class="nt">&quot;vote_count&quot;</span><span class="p">:</span> <span class="mi">16</span>
+        <span class="p">}]</span>
+<span class="p">}</span></code></pre></div>
+
+<p>In the JavaScript version this result  can easily be transformed <a href="http://jquery.com">JQuery</a> and <a href="http://
+underscorejs.org">underscore.js</a> into a view that can be passed to the templates renderer. This templating engine converts the movie 
+set into a block of HTML elements that is appended to the main page, overriding the ‘we are loading’ animation.</p>
+
+<p>For more information about the API please visit the <a href="http://docs.themoviedb.apiary.io">documentation page</a> of the 
+TheMovieDB project.</p>
+
+<h3 id="javascript-bridge">Javascript bridge</h3>
+
+<p>In order to start an actual payment, the Javascript application needs to make a call to the Java part of the 
+application. This is realized by exposing a JavaScript bridge that can be called from the code 
+running in the browser.</p>
+
+<p>This bridge exposes all the function available to the JavaScript part and looks as follows;</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kd">class</span> <span class="nc">JavascriptBridge</span> <span class="o">{</span>
+
+    <span class="nd">@JavascriptInterface</span>    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">buyTicket</span><span class="o">(</span><span class="n">String</span> <span class="n">movieId</span><span class="o">,</span> <span class="n">String</span> <span class="n">amount</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">PaymentRequest</span> <span class="n">paymentRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">PaymentRequest</span><span class="o">(</span><span class="k">new</span> <span class="nf">BigDecimal</span><span class="o">(</span><span class="n">amount</span><span class="o">)));</span>
+      <span class="n">startActivityForResult</span><span class="o">(</span><span class="n">paymentRequest</span><span class="o">.</span><span class="na">createIntent</span><span class="o">(),</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">movieId</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="nd">@JavascriptInterface</span>    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printTicket</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span> <span class="n">title</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+
+<p>The bridge is registered on start of the activity using the <code>addJavascriptInterface</code> method on a <code>WebView</code> instance.</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">webView</span><span class="o">.</span><span class="na">addJavascriptInterface</span><span class="o">(</span><span class="n">javascriptBridge</span><span class="o">,</span> <span class="s">&quot;Bridge&quot;</span><span class="o">);</span></code></pre></div>
+
+<p>Once this bridge has been registered the following JavaScript code can be executed;</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Bridge</span><span class="p">.</span><span class="nx">buyTicket</span><span class="p">(</span><span class="mi">1234</span><span class="p">,</span><span class="s2">&quot;14.00&quot;</span><span class="p">);</span></code></pre></div>
+
+<p>This will call the Java code inside the <code>buyTicket</code> function which in turn will create a <code>PaymentRequest</code> that is send 
+to the Payment Application using an Android Intent.</p>
+
+<blockquote>
+  <p><strong>Caution!</strong>
+Due to a vulnerability identified in Android 4.0, the WebView component has been patched and all
+functions exposed to JavaScript must include the <code>@JavascriptInterface</code> annotation. Note that
+this annotation is only supported from Android API Level 17. Therefore, you are required to ensure
+that your compilation settings are set accordingly and that you have the corresponding build tools
+installed within your environment.</p>
+
+  <p>For sample configuration settings for Eclipse or Gradle, please refer to the ToTheMovies Sample source code.</p>
+</blockquote>
+
+<h3 id="payment-results">Payment results</h3>
+
+<p>When the Payment app returns control to our app, <code>onActivityResult</code> is called with an <code>Intent</code> that contains information 
+about the status of our transaction. A <code>TransactionResult</code> object can be extracted from this intent using the 
+<code>TransactionResult.fromIntent</code> method.</p>
+
+<p>We can use this information to navigate to success or failure page within the HTML part of the application.</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// handle the payment app response</span>
+<span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onActivityResult</span><span class="o">(</span><span class="kt">int</span> <span class="n">requestCode</span><span class="o">,</span> <span class="kt">int</span> <span class="n">resultCode</span><span class="o">,</span> <span class="n">Intent</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+<span class="kd">super</span><span class="o">.</span><span class="na">onActivityResult</span><span class="o">(</span><span class="n">requestCode</span><span class="o">,</span> <span class="n">resultCode</span><span class="o">,</span> <span class="n">data</span><span class="o">);</span>
+
+<span class="n">TransactionResult</span> <span class="n">transactionResult</span> <span class="o">=</span> <span class="n">TransactionResult</span><span class="o">.</span><span class="na">fromIntent</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+
+<span class="k">switch</span> <span class="o">(</span><span class="n">transactionResult</span><span class="o">.</span><span class="na">getTransactionStatus</span><span class="o">())</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="nl">APPROVED:</span>
+    <span class="n">javascriptBridge</span><span class="o">.</span><span class="na">navigate</span><span class="o">(</span><span class="s">&quot;/success/&quot;</span> <span class="o">+</span> <span class="n">requestCode</span><span class="o">);</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">default</span><span class="o">:</span>
+    <span class="n">javascriptBridge</span><span class="o">.</span><span class="na">navigate</span><span class="o">(</span><span class="s">&quot;/failure&quot;</span><span class="o">);</span>
+    <span class="k">break</span><span class="o">;</span>
+<span class="o">}</span></code></pre></div>
+
+<p>The navigation is done using ‘client-side’ routing (aka hash-routing). This allows us to specify the state of the application using the hash part of the URL. </p>
+
+<p>Below are two examples of different application states based on the hash part of the URL;</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">http://example.com/index.html#success
+http://example.com/index.html#failure</code></pre></div>
+
+<p>This information can be captured in the browser and a success or failure page can be displayed accordingly.</p>
+
+<h3 id="type-enforcement-and-firewall-rules">Type Enforcement and Firewall Rules</h3>
+
+<p>Before the app can communicate with external servers hosting the REST API and images, the hostnames of these servers
+must be declared in the Android Manifest file. Along with this hostname declaration, the app must be
+declared as a <strong>vaa_merchant</strong> type and request the correct permission.</p>
+
+<p>These configuration entries can be made by altering the <strong>manifest</strong> tag as follows;</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+          <span class="na">package=</span><span class="s">&quot;com.aevi.tothemovies&quot;</span><span class="nt">&gt;</span>
+
+  ...
+
+  <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.INTERNET&quot;</span> <span class="nt">/&gt;</span> 
+
+  <span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;application-type&quot;</span> <span class="na">android:value=</span><span class="s">&quot;vaa_merchant&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;ip-addresses&quot;</span> <span class="na">android:value=</span><span class="s">&quot;443|api.themoviedb.org|10000&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;ip-addresses&quot;</span> <span class="na">android:value=</span><span class="s">&quot;443|d3gtl9l2a4fn1j.cloudfront.net|10000&quot;</span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/manifest&gt;</span></code></pre></div>
+
+<p>Please see the <a href="../reference/permissions-and-manifest.html#network-access">Network Access</a> section for more details on
+the notation.</p>
+
+<h2 id="barpos-sample">BarPOS Sample</h2>
+
+<p>This example is a rudimentary point-of-sale (POS) app for a bar serving a selection of specialist beers. It consists of 
+an overview of the tables in the bar (Figure 5a), a screen for editing bills (Figure 5b), and a payment screen
+(Figure 5c).</p>
+
+<div class="figure">
+	<div class="subfigure">
+		<a href="../img/samples/barPos-1.png" class="gallery">
+			<img src="../img/samples/barPos-1.png" />
+		</a>
+		<span>Table selection screen</span>
+	</div>
+	<div class="subfigure">
+		<a href="../img/samples/barPos-2.png" class="gallery">
+			<img src="../img/samples/barPos-2.png" />
+		</a>
+		<span>Drink Selection Screen</span>
+	</div>
+	<div class="subfigure">
+		<a href="../img/samples/paymentPage.png" class="gallery">
+			<img src="../img/samples/paymentPage.png" />
+		</a>
+		<span>Payment Screen</span>
+	</div>
+</div>
+
+<p>The compiled version of this sample app can be installed using ADB:</p>
+
+<pre><code>adb install &lt;sdk&gt;/samples/BarPosExample-2.3.0.apk
+</code></pre>
+
+<h2 id="sample-apps-source-code">Sample apps source code</h2>
+
+<p>The AEVI SDK distribution includes the source code for both samples. Due to incompatibilities in Source file structures
+across Eclipse IDE, Intellij IDEA and Android Studio, the distribution includes:</p>
+
+<ul>
+  <li>A variant for the Eclipse IDE. This can be imported into Eclipse using the standard File -&gt; Import Menu command</li>
+  <li>A variant for the Gradle build subsystem (requires gradle version 2.2.1) or use the gradle wrapper.
+This version can be imported into Android Studio via the Import button on the Welcome screen</li>
+</ul>
+
+<p>The zip files are located in the following folder:</p>
+
+<pre><code>&lt;sdk&gt;/samples/
+</code></pre>
+
+
+        </div>        
+    </div>
+    </div>
+
+    <footer class="footer with-menu">
+        <div class="controls">
+            <div class="row">
+                <div class="social col-md-4">
+                    <ul class="nav nav-pills">
+                        <li><a href="https://www.facebook.com/wincornixdorf.de" target="_blank"> <i class="fa fa-2x fa-facebook-square"></i></a></li>
+                        <li><a href="https://twitter.com/wincornixdorf" target="_blank"> <i class="fa fa-2x fa-twitter-square"></i></a></li>
+                        <li><a href="https://plus.google.com/102902303639129288885" target="_blank"> <i class="fa fa-2x fa-google-plus-square"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/wincor-nixdorf" target="_blank"> <i class="fa fa-2x fa-linkedin-square"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copy col-md-8">
+                    <h5>AEVI by Wincor-Nixdorf</h5>
+                    <p>Copyright &copy; 2015. All rights reserved</p>
+                    <p><a href="http://www.wincor-nixdorf.com/">http://www.wincor-nixdorf.com/</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="logo"><img src="../assets/img/wincor-logo.png" alt="Wincor Nixdorf Logo" /></div>
+    </footer>
+</div>
+
+
+<script type="text/javascript" src="../assets/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="../assets/js/site.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</body>
+</html>

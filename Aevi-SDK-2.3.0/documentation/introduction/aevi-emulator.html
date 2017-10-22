@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AEVI SDK documentation v2.3.0</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="../assets/css/aevi.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/docs.min.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/glyphicons.css" type="text/css" rel="stylesheet">
+    <link href="../assets/css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body class="url_introduction_aevi_emulator categories_introduction layout_default">
+
+<div id="main" class="layout">
+
+    <header class="header with-menu">
+        <div class="menu-toggle">
+            <button class="btn btn-default btn-sm"><i class="fa fa-lg fa-bars"></i></button>
+        </div>
+        <div class="brand"><a href="../index.html"><img src="../assets/img/logo.jpg" alt="Site Logo"></a></div>
+        <div class="controls right">
+            <div class="advert">Support? Email <a href="mailto:aevi.sdk@wincor-nixdorf.com" class="advert">support@aevi.com</a></div>
+            <div class="user"></div>
+        </div>
+    </header>
+
+    <div class="clearfix">
+    <div class="sidebar closed">
+    <nav>
+        <ul class="nav">
+            <li>
+                <a href="../index.html"><i class="fa fa-lg fa-book"></i> SDK Documentation</a>
+            </li>
+            
+            <li>
+                <a href="../introduction/index.html"><i class="fa fa-lg fa-bookmark"></i> Introduction</a>
+                
+                <ul class="nav">
+                    
+                    
+                    
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/albert-intro.html">Albert Introduction</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sdk-intro.html">AEVI SDK Introduction</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/whats-new-2.html">What's new in SDK 2.x.x</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sdk-install.html">Installation Guide</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/sample-apps.html">Sample Applications</a></li>
+            
+            
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/api-compatibility.html">API Compatibility</a></li>
+            
+            
+            
+                    
+                    
+                    <li><a href="../introduction/dev-lifecycle.html">App Development Lifecycle</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li><a href="../introduction/platform-hardening.html">Platform Hardening</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+                    
+                    <li class="active"><a href="../introduction/aevi-emulator.html">AEVI Emulator</a></li>
+            
+            
+            
+                    
+                    
+                    <li><a href="../introduction/albert-developer-device.html">Developer Device</a></li>
+            
+            
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+                    
+            
+        </ul>
+        
+        </li>
+        <li>
+            <a href="../guides/index.html"><i class="fa fa-lg fa-bookmark"></i> Guides</a>
+            
+        </li>
+        <li>
+            <a href="../reference/index.html"><i class="fa fa-lg fa-coffee"></i> Reference</a>
+            
+        </li>
+        </ul>
+    </nav>
+</div>
+
+    <div class="content with-menu" role="main">
+        <ol class="breadcrumb">
+            <li><a href="#">AEVI SDK v2.3.0</a></li>
+        </ol>
+        <div role="content">
+            <h1>AEVI Emulator</h1>
+            <p>The AEVI emulator for Albert is provided as an addition to the AEVI SDK and is intended to assist app developers in testing and debugging their Apps. The emulator mimics the security features of the Albert Device, specifically the SE Android based type enforcement and Trusted Communications Manager functionalities.</p>
+
+<p>Developers are advised to use the emulator as part of their integration and/or acceptance testing processes prior to submission of their Applications for vetting.</p>
+
+<h2 id="pre-requisites">Pre-Requisites</h2>
+
+<ul>
+  <li>A Windows, Mac or Linux Developer Workstation</li>
+  <li>The Android SDK with the following modules installed:
+    <ul>
+      <li>Android SDK Tools (v23.0.2 or later)</li>
+      <li>Android SDK Platform Tools (v20 or later) </li>
+      <li>Android SDK Build Tools (v 20 or later)</li>
+      <li>Android 4.0.3 (API 15). Please also ensure you have the Intel x86 Atom System Image installed </li>
+      <li>Intel x86 Emulator Accelerator installed (Intel HAXM).</li>
+    </ul>
+  </li>
+  <li>Python v2.x (for Mac OSX &amp; Linux installer)</li>
+</ul>
+
+<p>Please ensure that the ‘android-sdk/tools’ directory has been added to your PATH.</p>
+
+<h2 id="installing-the-intel-x86-emulator-accelerator">Installing the Intel x86 Emulator Accelerator</h2>
+
+<p>Note that when the Intel HAXM Module is installed in the Android SDK Manager, it is simply downloaded. There are additional steps to follow to install the Accelerator. For further information, please see the following resources:</p>
+
+<ul>
+  <li><a href="http://developer.android.com/tools/devices/emulator.html#accel-vm">Android Developers website</a></li>
+  <li><a href="https://software.intel.com/en-us/android/articles/intel-hardware-accelerated-execution-manager">Intel Developer Zone - Android microsite</a></li>
+</ul>
+
+<p>Note that the Intel HAXM requires Windows Vista or later to operate. Although the AEVI emulator for Albert will operate without Intel HAXM installed, users are warned that AEVI Emulator performance will be poor.</p>
+
+<blockquote>
+  <p>It is also possible to use QEMU on Linux instead of Intel HAXM. Please see the <a href="http://developer.android.com/tools/devices/emulator.html#vm-linux">Android Developer</a> website for further information.</p>
+</blockquote>
+
+<h2 id="installing-the-emulator-on-mac-osx-or-linux">Installing the emulator on Mac OSX or Linux</h2>
+
+<p>A python based installer script has been provided for Mac OSX and Linux users. Simply type the command <code>python setup.py</code> from the root directory of the distribution to install. </p>
+
+<h2 id="installing-the-emulator-on-windows">Installing the emulator on Windows</h2>
+
+<p>To install the emulator on a Windows machine, please run the setup.exe file and follow the prompts.</p>
+
+<h2 id="alternative-installation-option">Alternative Installation Option</h2>
+
+<p>Should either of the above options for installation fail, the emulator can be installed manually:</p>
+
+<ol>
+  <li>Expand the file <code>Albert.zip</code>. The contents comprise the file <code>Albert.ini</code> and the directory <code>Albert.avd/</code>.</li>
+  <li>Copy these contents into the directory <code>.android/avd/</code> located in your home directory.</li>
+  <li>EITHER: Copy the file <code>devices.xml</code> located in the <code>Albert.avd/</code> directory to the <code>.android/</code> directory located in your home directory. </li>
+  <li>OR: If your configuration already has a <code>devices.xml</code> file, please add add the contents of <code>albert.xml</code> to the <code>devices.xml</code> file.</li>
+</ol>
+
+<h2 id="validating-that-the-emulator-is-installed-correctly">Validating that the Emulator is installed correctly</h2>
+
+<p>You may verify that the AVD has been successfully installed by starting the “AVD Manager” that comes with the Android SDK and confirm that you can see an AVD with the name ‘Albert’ as shown in figure 1 below.</p>
+
+<blockquote>
+  <p>You may need to restart your IDE for the Albert virtual device to appear in AVD management.</p>
+</blockquote>
+
+<div class="figure">
+	<img src="../img/introduction/android-virtual-device-manager.png" />
+	<span>AVD Manager with the Albert device image installed</span> 
+</div>
+
+<blockquote>
+  <p>Please avoid editing the Emulator settings on this screen as it is easy to corrupt the configuration.</p>
+</blockquote>
+
+<h2 id="starting-the-emulator">Starting the Emulator</h2>
+
+<p>The emulator can be launched from either the “Android AVD Manager” or the system shell by typing the command <code>emulator -avd Albert</code>.</p>
+
+<div class="figure">
+	<img src="../img/introduction/albert-emulator-1.png" />
+	<span>AEVI Emulator for Albert booting up</span> 
+</div>
+
+<div class="figure">
+	<img src="../img/introduction/albert-emulator-2.png" />
+	<span>AEVI Emulator for Albert at the Launcer screen</span> 
+</div>
+
+<blockquote>
+  <p><strong>Note:</strong> The boot times for the Emulator are not representative of the boot time on the real device.</p>
+</blockquote>
+
+<h2 id="install-the-simulators--other-apps">Install the Simulators &amp; other Apps</h2>
+
+<p>Before you can use the emulator to test your apps you must first install the Device and Payment simulators which are installed in the normal way using <code>adb install</code>. For further information, please refer to the <a href="../introduction/sdk-install.html">Installation Guide</a>. Note that there is a specific Device simulator package (apk) file for the AEVI Emulator.</p>
+
+<blockquote>
+  <p>The emulator may need to be restarted to get the networking samples to work.</p>
+</blockquote>
+
+<h2 id="shutting-down-the-emulator">Shutting Down the Emulator</h2>
+
+<p>To avoid file system corruption, please ensure you shut down the emulator correctly:</p>
+
+<ul>
+  <li>Long press the <code>F7</code> function key</li>
+  <li>Click on ‘OK’</li>
+  <li>When the screen goes blank, you can close the window.</li>
+</ul>
+
+<blockquote>
+  <p>Long press of the <code>F7</code> function key does not work on Windows 8. To close emulator on Windows 8 use <code>&lt;Fn&gt; + F7</code></p>
+</blockquote>
+
+<h2 id="wiping-user-data">Wiping User Data</h2>
+
+<p>Should the Data partition become corrupted, you can refresh the Data partition as part of the start-up procedure for the emulator.</p>
+
+<ul>
+  <li>For the AVD Manager, please select the ‘Wipe user data’ option in the ‘Launch Options’ dialog that is presented after pressing the Start… button.</li>
+  <li>If using the command line, type <code>emulator -avd Albert -wipe-data</code>.</li>
+</ul>
+
+<h2 id="accessing-the-acquirer-specific-merchant-context-menu">Accessing the Acquirer Specific Merchant Context Menu</h2>
+
+<p>The Merchant Context Menu is an Acquirer specific extension that is available from the Launcher &amp; Payment App on the Albert Device. Some Acquirer’s have a specific API that enables developers to use this feature.</p>
+
+<p>The <code>F2</code> function key may be used to simulate the Merchant Context Menu button present on the real device.</p>
+
+<h2 id="switching-to-landscape-view">Switching to Landscape View</h2>
+
+<p>By default, the Emulator displays in portrait orientation. To rotate the device, the Android <code>&lt;Ctrl&gt; + F12</code>. The same key combination can also be used to switch back.</p>
+
+<blockquote>
+  <p>Switching to Landscape View on emulator using <code>&lt;Ctrl&gt; + F12</code> command is not working from windows 8
+  To switch to landscape mode on windows 8 use: <code>&lt;Fn&gt; + &lt;Ctrl&gt; + F12</code></p>
+</blockquote>
+
+<h2 id="other-keyboard-commands">Other Keyboard Commands</h2>
+
+<p>Other Keyboard Commands may be found on <a href="http://developer.android.com/tools/help/emulator.html#KeyMapping">here</a>.</p>
+
+<h2 id="enforcing-and-permissive-modes">Enforcing and Permissive Modes</h2>
+
+<p>The emulator has two modes of operation the <code>Enforcing</code> and <code>Permissive</code>.
+On start up the emulator defaults to <code>Enforcing</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>mode</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Enforcing</td>
+      <td>Enforces the restrictions that will be applied to the production AEVI device.</td>
+    </tr>
+    <tr>
+      <td>Permissive</td>
+      <td>Does not apply any of the restrictions.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>To find which mode is running or to change the current mode first startup an emulator shell by running </p>
+
+<pre><code>adb shell
+</code></pre>
+
+<p>To determine the current mode execute the command</p>
+
+<pre><code>getenforce
+</code></pre>
+
+<p>To change the mode use <code>setenforce</code> with parameters <code>enforcing</code> or <code>permissive</code> (or alternatively  use <code>1</code> or <code>0</code>).</p>
+
+<pre><code>setenforce enforcing
+</code></pre>
+
+<p>or</p>
+
+<pre><code>setenforce permissive
+</code></pre>
+
+
+        </div>        
+    </div>
+    </div>
+
+    <footer class="footer with-menu">
+        <div class="controls">
+            <div class="row">
+                <div class="social col-md-4">
+                    <ul class="nav nav-pills">
+                        <li><a href="https://www.facebook.com/wincornixdorf.de" target="_blank"> <i class="fa fa-2x fa-facebook-square"></i></a></li>
+                        <li><a href="https://twitter.com/wincornixdorf" target="_blank"> <i class="fa fa-2x fa-twitter-square"></i></a></li>
+                        <li><a href="https://plus.google.com/102902303639129288885" target="_blank"> <i class="fa fa-2x fa-google-plus-square"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/wincor-nixdorf" target="_blank"> <i class="fa fa-2x fa-linkedin-square"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copy col-md-8">
+                    <h5>AEVI by Wincor-Nixdorf</h5>
+                    <p>Copyright &copy; 2015. All rights reserved</p>
+                    <p><a href="http://www.wincor-nixdorf.com/">http://www.wincor-nixdorf.com/</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="logo"><img src="../assets/img/wincor-logo.png" alt="Wincor Nixdorf Logo" /></div>
+    </footer>
+</div>
+
+
+<script type="text/javascript" src="../assets/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="../assets/js/site.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</body>
+</html>

@@ -1,0 +1,36 @@
+p, li { color: #333; }
+footer p, footer li { color: #9fa0a1; }
+
+blockquote { border-color: #4293c9; color: #000; font-size: 15px; }
+
+.m-lander-stripe { margin: 120px 0 0 0; }
+.l-lander-stripe { min-height: 220px; min-height: 123px; background-color: #8c001e; padding: 50px 0; }
+.lander-img { float:left; margin: -171px 0 0 0; }
+.lander-title { margin: -102px 0 0 0; position: absolute; right: 60px;  }
+.lander-title h1 { white-space: nowrap; font-size: 39px !important; color:#fff; }
+.lander-title h2 { white-space: nowrap; font-size: 18px !important; color:#fff; float:right; margin-top:-10px; }
+
+.figure { counter-increment: fig; counter-reset: subfig; text-align: center; margin:20px; margin-left: auto; margin-right: auto; vertical-align: bottom; }
+.figure > img { max-width: 100%; }
+.figure > a > img { width: 30%; }
+.figure > span { display: block; font-size:9pt; }
+.figure > span:before { font-weight: bold; content: "Figure " counter(fig) ": "; }
+.figure > span[number]:before { font-weight: bold; content: "Figure " attr(number) ": "; }
+.subfigure { counter-increment: subfig; display: inline-block; text-align: center; margin-right:20px; height:100%; vertical-align: top; width: 30%;}
+.figure > .subfigure:last-of-type { margin-right:0pt ! important; }
+.subfigure > span:before { font-weight: bold; content: "Figure " counter(fig) counter(subfig, lower-alpha) ": "; }
+.subfigure > span { display: block; font-size:8pt; }
+.subfigure > a > img { width: 100%; }
+
+.content.with-menu { margin-bottom: 80px; }
+
+.content.with-javadocs { padding: 0; margin: 0 0 0 215px; }
+.content.with-javadocs > div { position: fixed; bottom: 0; right: 0; left: 215px; top: 115px; }
+.content.with-javadocs .breadcrumb { margin: 0; }
+.content.with-javadocs iframe { width: 100%; height: 100%; }
+
+.quickindex { float: right; margin-left: 20px; }
+
+.sidebar { z-index: 10; }
+
+.header .controls .user { border: none; }
